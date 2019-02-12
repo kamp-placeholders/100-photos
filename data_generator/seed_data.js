@@ -1,12 +1,7 @@
 const faker = require('faker');
 const mysql = require('mysql');
 const zeroFill = require('zero-fill');
-
-const db = mysql.createConnection({
-  user: "root",
-  password: "yourpassword",
-  database: "gallery"
-});
+const db = require('../database/index.js')
 
 db.connect();
 
@@ -23,16 +18,16 @@ var insertPhotoRow = function () {
   let date = faker.date.past().toString();
   let source = faker.lorem.words();
 
-  var query = `INSERT INTO photos (url, restaurant_id, description, date, source) VALUES (
-    '${url}', '${restaurant_id}', '${description}', '${date}', '${source}');`
+var query = `INSERT INTO photos (url, restaurant_id, description, date, source) VALUES (
+  '${url}', '${restaurant_id}', '${description}', '${date}', '${source}');`
 
-  console.log("one query:", query);
   return query;
 }
 
 var populatePhotosTable = function () {
   for (var i = 0; i < 100; i++) {
     var query = insertPhotoRow();
+    //use promises here for async work?
     db.query(query, (err) => {
       if (err) { }
       console.log(err);
@@ -41,8 +36,9 @@ var populatePhotosTable = function () {
   }
 }
 
-// populatePhotosTable();
+populatePhotosTable();
 
 module.exports.db = db; 
-// module.exports = {populatePhotosTable, insertPhotoRow};
-module.exports.randomImage = randomImage; 
+// module.exports.populatePhotosTable = populatePhotosTable; 
+// module.exports.insertPhotoRow = insertPhotoRow; 
+// module.exports.randomImage = randomImage; 
