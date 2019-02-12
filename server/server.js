@@ -1,19 +1,28 @@
-var express = require('express');
-var path = require('path');
-var morgan = require('morgan');
-var db = require('../data_generator/index.js').db;
-
-// db.connect();
+const express = require('express');
+const path = require('path');
+const morgan = require('morgan');
+const parser = require('body-parser');
+const db = require('../database/index.js');
+const mysql = require('mysql');
 
 var PORT = 3002;
 var app = express()
-app.use(morgan('dev'));
 
-//TODO: make this path reletive!
+db.connect();
+
+app.use(morgan('dev'));
+app.use(parser.json());
+
 app.use(express.static('./client/dist'));
 
 app.get('/api/photos', function (req, res) {
-  res.status(200).send('here ya gooooo')
+   db.query('SELECT * FROM photos;', (err, photos) => {
+     if(err){
+       console.log(err);
+       return; 
+     } 
+     res.status(200).send(photos);
+   });
 })
 
 app.listen(PORT, () => {
