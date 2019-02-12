@@ -14,9 +14,15 @@
     "start": "nodemon ./server/server.js ",
     "seed": "node ./data_generator/seed_data.js"
   },
+  "babel": {
+    "plugins": [
+      "babel-plugin-styled-components"
+    ]
+  },
   "devDependencies": {
     "babel-core": "^6.23.1",
     "babel-loader": "^6.3.2",
+    "babel-plugin-styled-components": "^1.10.0",
     "babel-preset-es2015": "^6.22.0",
     "babel-preset-react": "^6.23.0",
     "jest": "^24.1.0",
@@ -34,11 +40,12 @@
     "jquery": "^3.2.1",
     "mysql": "^2.16.0",
     "path": "^0.12.7",
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1",
+    "react": "^16.8.1",
+    "react-dom": "^16.8.1",
     "request": "^2.88.0",
     "sprint-js": "^0.1.0",
     "sprintf-js": "^1.1.2",
+    "styled-components": "^4.1.3",
     "underscore": "^1.8.3",
     "zero-fill": "^2.2.3"
   }
