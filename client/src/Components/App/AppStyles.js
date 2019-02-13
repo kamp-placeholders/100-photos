@@ -1,30 +1,22 @@
-// import styled from 'styled-components';
+import styled from 'styled-components';
 
-// //remove all borders when ready to map images...
-// const PhotoGallery = styled.div`
-//   border: 1px solid black; 
-//   margin: 0;
-//   paddig: 5px; 
-// `;
+//minimum w/h => 330 X 280
+const PhotoGallery = styled.div`
+  border: 1px solid black; 
+  padding: 5px;
+  justify-content: center;
+  position: static;
+  max-height: 100%; 
+  max-width: 613px;
+  min-height: 100%; 
+  min-width: 352px;
+  `;
 
-// const Header = styled.h2`
-// border: 1px solid black; 
-//   font-size: 24px;
-//   font-weight: 700;
-//   line-height: 32px;
-//   color: #2d333f;
-//   border-bottom: 1px solid #d8d9db;
-//   padding-bottom: 16px;
-//   margin: 0 0 16px 0;
-//   margin-block-start: 0.83em;
-//   margin-block-end: 0.83em;
-//   margin-inline-start: 0px;
-//   margin-inline-end: 0px;s
-//   display: flex;
-//   justify-content: space-between;
-//   font-family: BrandonText,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
-//     background-color: #f1f2f4;
-//   -webkit-font-smoothing: antialiased;
-// `;
+const Header = styled.h2`
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
+  font-family: BrandonText,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+`;
 
-// export {PhotoGallery, Header}
+export default {PhotoGallery, Header}

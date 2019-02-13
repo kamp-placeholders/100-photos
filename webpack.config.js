@@ -1,6 +1,8 @@
 var path = require('path');
 var SRC_DIR = path.join(__dirname, '/client/src');
 var DIST_DIR = path.join(__dirname, '/client/dist');
+const webpack = require('webpack');
+
 
 module.exports = {
   entry: `${SRC_DIR}/index.jsx`,
@@ -8,7 +10,9 @@ module.exports = {
     filename: 'bundle.js',
     path: DIST_DIR
   },
-
+  plugins: [
+    new webpack.HotModuleReplacementPlugin()
+  ],
   module: {
     loaders: [
       {
@@ -20,5 +24,8 @@ module.exports = {
         }
       }
     ]
+  },
+  devServer: {
+    hot: true
   }
 };

@@ -1,4 +1,4 @@
-module.exports= [
+const data = [
     {
         "id": 1,
         "url": "https://s3-us-west-1.amazonaws.com/placeholders.carousel.photos/00050.jpg",
@@ -16800,3 +16800,5 @@ module.exports= [
         "source": "iste sint odit"
     }
 ]
+
+export default data; 
