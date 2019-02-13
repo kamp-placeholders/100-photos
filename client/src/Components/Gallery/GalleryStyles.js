@@ -10,7 +10,6 @@ const Gallery = styled.div`
   display: inline;
 `;
 
-//TODO:at 355 px width, flip the grid...
 const Layout = styled.ul`
   display: grid;
   grid-gap: 2px;
@@ -23,11 +22,11 @@ const Layout = styled.ul`
 `;
 
 const Item1 = styled.li`
-  grid-area: 1 / 1 / 4 / span 1;
-  max-height: 100%; 
+  max-height: 139px; 
   max-width: 139px;
-  min-height: 100%; 
+  min-height: 76px; 
   min-width: 76px;
+  grid-area: 1 / 1 / 4 / span 1;
   display: inline-block; 
 `;
 

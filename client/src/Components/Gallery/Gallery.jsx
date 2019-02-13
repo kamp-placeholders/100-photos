@@ -4,17 +4,21 @@ import Styled from './GalleryStyles.js';
 class Gallery extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {};
+    this.state = {
+      
+    };
   }
 
   render() {
+    console.log(this.props.data[0].url)
     return (
       <Styled.Gallery>
         <Styled.Layout>
+
           <Styled.Item1>
             <Styled.Button>
               <Styled.PhotoContainer>
-                <Styled.Photo></Styled.Photo>
+                <Styled.Photo src={this.props.data[0].url}></Styled.Photo>
               </Styled.PhotoContainer>
             </Styled.Button>
           </Styled.Item1>
@@ -22,7 +26,7 @@ class Gallery extends React.Component {
           <Styled.Item2>
             <Styled.Button>
               <Styled.PhotoContainer>
-                <Styled.Photo></Styled.Photo>
+                <Styled.Photo src={this.props.data[1].url}></Styled.Photo>
               </Styled.PhotoContainer>
             </Styled.Button>
           </Styled.Item2>
@@ -30,7 +34,7 @@ class Gallery extends React.Component {
           <Styled.Item3>
             <Styled.Button>
               <Styled.PhotoContainer>
-                <Styled.Photo></Styled.Photo>
+                <Styled.Photo src={this.props.data[2].url}></Styled.Photo>
               </Styled.PhotoContainer>
             </Styled.Button>
           </Styled.Item3>
@@ -38,7 +42,7 @@ class Gallery extends React.Component {
           <Styled.Item4>
             <Styled.Button>
               <Styled.PhotoContainer>
-                <Styled.Photo ></Styled.Photo>
+                <Styled.Photo src={this.props.data[3].url} ></Styled.Photo>
               </Styled.PhotoContainer>
             </Styled.Button>
           </Styled.Item4>
@@ -46,7 +50,7 @@ class Gallery extends React.Component {
           <Styled.Item5>
             <Styled.Button>
               <Styled.PhotoContainer>
-                <Styled.Photo></Styled.Photo>
+                <Styled.Photo src={this.props.data[4].url} ></Styled.Photo>
               </Styled.PhotoContainer>
             </Styled.Button>
           </Styled.Item5>
@@ -54,7 +58,7 @@ class Gallery extends React.Component {
           <Styled.Item6>
             <Styled.Button>
               <Styled.PhotoContainer>
-                <Styled.Photo></Styled.Photo>
+                <Styled.Photo src={this.props.data[5].url} ></Styled.Photo>
               </Styled.PhotoContainer>
             </Styled.Button>
           </Styled.Item6>
@@ -62,7 +66,7 @@ class Gallery extends React.Component {
           <Styled.Item7>
             <Styled.Button>
               <Styled.PhotoContainer>
-                <Styled.Photo></Styled.Photo>
+                <Styled.Photo src={this.props.data[6].url} ></Styled.Photo>
               </Styled.PhotoContainer>
             </Styled.Button>
           </Styled.Item7>
@@ -70,7 +74,7 @@ class Gallery extends React.Component {
           <Styled.Item8>
             <Styled.Button>
               <Styled.PhotoContainer>
-                <Styled.Photo></Styled.Photo>
+                <Styled.Photo src={this.props.data[7].url} ></Styled.Photo>
               </Styled.PhotoContainer>
             </Styled.Button>
           </Styled.Item8>
@@ -78,7 +82,7 @@ class Gallery extends React.Component {
           <Styled.ItemLast>
             <Styled.Button>
               <Styled.PhotoContainer>
-                <Styled.Photo></Styled.Photo>
+                <Styled.Photo src={this.props.data[8].url} ></Styled.Photo>
               </Styled.PhotoContainer>
             </Styled.Button>
           </Styled.ItemLast>
