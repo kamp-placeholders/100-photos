@@ -15,8 +15,8 @@ class App extends React.Component {
   render() {
     return (
       <Styled.PhotoGallery>
-      <Styled.Header>100 Photos</Styled.Header>
-         <Gallery/>
+        <Styled.Header>100 Photos</Styled.Header>
+        <Gallery />
       </Styled.PhotoGallery>
     )
   }

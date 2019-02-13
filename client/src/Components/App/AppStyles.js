@@ -19,4 +19,4 @@ const Header = styled.h2`
   font-family: BrandonText,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
 `;
 
-export default {PhotoGallery, Header}
+export default { PhotoGallery, Header }

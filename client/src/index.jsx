@@ -13,6 +13,6 @@ switch displays to the slide show experience.
 */
 
 
-ReactDOM.render(<App/>, document.getElementById('app'));
+ReactDOM.render(<App />, document.getElementById('app'));
 
 module.hot.accept();

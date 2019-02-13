@@ -126,6 +126,6 @@ const Photo = styled.img`
   overflow: hidden;
   width: 100%;
   height: 100%;
-`; 
+`;
 
-export default {Photo, PhotoContainer, Button, ItemLast, Item6, Item7, Item8, Item5, Item4, Item3, Item2, Item1, Layout, Gallery}
+export default { Photo, PhotoContainer, Button, ItemLast, Item6, Item7, Item8, Item5, Item4, Item3, Item2, Item1, Layout, Gallery }
