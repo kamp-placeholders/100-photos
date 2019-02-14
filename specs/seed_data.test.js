@@ -1,11 +1,6 @@
 const seed_data = require('../data_generator/seed_data.js');
 const mysql = require('mysql');
-
-const db = mysql.createConnection({
-  user: "root",
-  password: "yourpassword",
-  database: "gallery"
-});
+const db = require('../database/index.js');
 
 beforeAll(() => {
   return db.connect();
