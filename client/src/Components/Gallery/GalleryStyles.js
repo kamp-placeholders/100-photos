@@ -104,7 +104,7 @@ const ItemLast = styled.li`
 `;
 
 const Button = styled.a`
-  background-color: green; 
+  background-color: green;
   position: relative;
   width: fill-available;
   height: fill-available;
@@ -112,14 +112,15 @@ const Button = styled.a`
 
 const PhotoContainer = styled.div`
   background-color: purple;
+  display: block;
   width: fill-available;
   height: fill-available;
   justify-content: center;
   position: relative;
+  }
 `;
 
 const Photo = styled.img`
-  background-color: grey;
   justify-content: center;
   position: absolute;
   overflow: hidden;
@@ -127,4 +128,25 @@ const Photo = styled.img`
   height: 100%;
 `;
 
-export default { Photo, PhotoContainer, Button, ItemLast, Item6, Item7, Item8, Item5, Item4, Item3, Item2, Item1, Layout, Gallery }
+const Overlay = styled.div`
+position: absolute;
+top: 0;
+left: 0;
+clear: float;
+width: 100%;
+height: 100%;
+background-color: rgba(0, 0, 0, 0.5);
+color: #ffffff;
+text-align: center; 
+-webkit-font-smoothing: antialiased;
+font-family: BrandonText,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+font-size: 10px;
+font-weight: 200;
+line-height: 45px;
+
+:hover {
+  background-color: rgba(0, 0, 0, 0.65);
+}
+`;
+
+export default { Photo, PhotoContainer, Button, Overlay, ItemLast, Item6, Item7, Item8, Item5, Item4, Item3, Item2, Item1, Layout, Gallery }

@@ -9,6 +9,7 @@ const PhotoGallery = styled.div`
   max-width: 613px;
   min-height: 100%; 
   min-width: 352px;
+  position: absolute;
   `;
 
 const Header = styled.h2`

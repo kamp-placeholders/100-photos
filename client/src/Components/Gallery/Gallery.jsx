@@ -82,7 +82,9 @@ class Gallery extends React.Component {
           <Styled.ItemLast>
             <Styled.Button>
               <Styled.PhotoContainer>
-                <Styled.Photo src={this.props.data[8].url} ></Styled.Photo>
+                <Styled.Photo 
+                src={this.props.data[8].url} ></Styled.Photo>
+                <Styled.Overlay>+ 91 more</Styled.Overlay>
               </Styled.PhotoContainer>
             </Styled.Button>
           </Styled.ItemLast>
