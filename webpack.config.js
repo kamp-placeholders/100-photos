@@ -10,9 +10,6 @@ module.exports = {
     filename: 'bundle.js',
     path: DIST_DIR
   },
-  plugins: [
-    new webpack.HotModuleReplacementPlugin()
-  ],
   module: {
     loaders: [
       {
@@ -25,7 +22,4 @@ module.exports = {
       }
     ]
   },
-  devServer: {
-    hot: true
-  }
 };
