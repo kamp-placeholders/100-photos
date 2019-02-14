@@ -16,7 +16,7 @@ const Header = styled.h2`
   border-bottom: solid grey 0.5px;
   padding-bottom: 10px;
   font-size: 24px;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 32px;
   font-family: BrandonText,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
 `;

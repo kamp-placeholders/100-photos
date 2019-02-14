@@ -4,6 +4,7 @@ import axios from 'axios';
 import Gallery from '../Gallery/Gallery.jsx'
 
 
+console.log(Gallery);
 class App extends React.Component {
   constructor(props) {
     super(props)

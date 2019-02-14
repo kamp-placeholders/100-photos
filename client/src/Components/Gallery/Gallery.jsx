@@ -1,5 +1,6 @@
 import React from 'react';
 import Styled from './GalleryStyles.js';
+import 
 
 class Gallery extends React.Component {
   constructor(props) {
@@ -9,6 +10,12 @@ class Gallery extends React.Component {
   }
 
   render() {
+<<<<<<< HEAD
+=======
+    return (
+      <Styled.Gallery>
+        <Styled.Layout>
+>>>>>>> d903c4a311108b57e10cffe87dcba730e0b78b26
 
     if(this.props.data.length !== 0){
       return (
