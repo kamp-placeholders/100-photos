@@ -104,14 +104,12 @@ const ItemLast = styled.li`
 `;
 
 const Button = styled.a`
-  background-color: green;
   position: relative;
   width: fill-available;
   height: fill-available;
 `;
 
 const PhotoContainer = styled.div`
-  background-color: purple;
   display: block;
   width: fill-available;
   height: fill-available;
@@ -126,6 +124,7 @@ const Photo = styled.img`
   overflow: hidden;
   width: 100%;
   height: 100%;
+  background-color: cover; 
 `;
 
 const Overlay = styled.div`
