@@ -124,7 +124,7 @@ const Photo = styled.img`
   overflow: hidden;
   width: 100%;
   height: 100%;
-  background-color: cover; 
+  background-size: cover; 
 `;
 
 const Overlay = styled.div`

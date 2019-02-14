@@ -2,6 +2,7 @@ import React from 'react';
 import Styled from './AppStyles.js';
 import axios from 'axios';
 import Gallery from '../Gallery/Gallery.jsx'
+import Modal from '../'
 
 
 class App extends React.Component {
@@ -25,7 +26,7 @@ class App extends React.Component {
       })
 
       .then(() => {
-        //selects random restuarant id # to simulate get response id
+        //selects random restuarant id # to simulate get response.data.id
         var randomId = Math.floor(Math.random() * 100) + 1;
         var allImages = this.state.data;
 
