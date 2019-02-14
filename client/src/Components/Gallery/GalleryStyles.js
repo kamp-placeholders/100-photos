@@ -12,7 +12,7 @@ const Gallery = styled.div`
 
 const Layout = styled.ul`
   display: grid;
-  grid-gap: 2px;
+  grid-gap: 1px;
   grid-template-columns: 23% 45% 15% 15%;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
   margin: 0 auto;
