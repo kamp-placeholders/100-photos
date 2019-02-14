@@ -9,12 +9,3 @@ beforeAll(() => {
 afterAll(() => {
   return db.end();
 });
-
-test('randomImage() should produce a number less than or equal to 100', () => {
-  expect(Number(seed_data.randomImage())).toBeLessThanOrEqual(100);
-});
-
-test('insertPhotoRow() should create a SQL query', () => {
-  expect(seed_data.insertPhotoRow()).stringContaining('INSERT')
-});
-

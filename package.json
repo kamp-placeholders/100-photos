@@ -32,6 +32,7 @@
   },
   "dependencies": {
     "angular": "^1.6.5",
+    "axios": "^0.18.0",
     "bluebird": "^3.5.3",
     "body-parser": "^1.17.2",
     "bootstrap": "^3.3.7",

@@ -1,9 +1,10 @@
 import React from 'react';
 import data from '../../sampleData.js';
 import Styled from './AppStyles.js';
+import axios from 'axios';
 import Gallery from '../Gallery/Gallery.jsx'
 
-console.log(Gallery);
+
 class App extends React.Component {
   constructor(props) {
     super(props)
@@ -11,6 +12,8 @@ class App extends React.Component {
       images: data
     }
   }
+
+
 
   render() {
     return (

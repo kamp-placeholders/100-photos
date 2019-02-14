@@ -21,6 +21,7 @@ app.get('/api/photos', function (req, res) {
        console.log(err);
        return; 
      } 
+     res.set('font-src','none')
      res.status(200).send(photos);
    });
 })
