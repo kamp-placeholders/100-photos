@@ -22,7 +22,8 @@ coverage
 
 # Compiled Dirs (http://nodejs.org/api/addons.html)
 build/
-dist/
+client/dist/bundle.js
 
 .config.js
 
+client/src/sampleData.js
