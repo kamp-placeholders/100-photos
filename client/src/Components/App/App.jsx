@@ -10,7 +10,8 @@ class App extends React.Component {
 
     this.state = {
       data: [],
-      currentById: []
+      currentById: [],
+      numOfImages: 0
     }
   }
 
@@ -27,13 +28,18 @@ class App extends React.Component {
         //selects random restuarant id # to simulate get response id
         var randomId = Math.floor(Math.random() * 100) + 1;
         var allImages = this.state.data;
+
         var filteredById = allImages.filter((image) => {
           return Number(image.restaurant_id) === randomId
         })
 
-        this.setState({
-          currentById: filteredById
-        });
+        let newState = {
+          data: this.state.data,
+          currentById: filteredById,
+          numOfImages: filteredById.length
+        }
+
+        this.setState(newState);
       })
 
       .catch(function (error) {
@@ -44,8 +50,8 @@ class App extends React.Component {
   render() {
     return (
       <Styled.PhotoGallery>
-        <Styled.Header>100 Photos</Styled.Header>
-        <Gallery data={this.state.currentById} />
+        <Styled.Header>{this.state.numOfImages} Photos</Styled.Header>
+        <Gallery data={this.state.currentById} imgTotal={this.state.numOfImages}/>
       </Styled.PhotoGallery>
     )
   }

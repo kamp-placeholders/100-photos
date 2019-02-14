@@ -13,7 +13,7 @@ const PhotoGallery = styled.div`
   `;
 
 const Header = styled.h2`
-  border-bottom: solid grey 1px;
+  border-bottom: solid grey 0.5px;
   padding-bottom: 10px;
   font-size: 24px;
   font-weight: 700;

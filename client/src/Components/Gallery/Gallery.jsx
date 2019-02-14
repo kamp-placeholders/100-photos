@@ -5,13 +5,11 @@ class Gallery extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-
     };
-
   }
 
   render() {
-    console.log(this.props.data.length)
+
     if(this.props.data.length !== 0){
       return (
         <Styled.Gallery>
@@ -86,7 +84,7 @@ class Gallery extends React.Component {
                 <Styled.PhotoContainer>
                   <Styled.Photo 
                   src={this.props.data[8].url} ></Styled.Photo>
-                  <Styled.Overlay>+ 91 more</Styled.Overlay>
+                  <Styled.Overlay>+ {this.props.imgTotal - 9} more</Styled.Overlay>
                 </Styled.PhotoContainer>
               </Styled.Button>
             </Styled.ItemLast>
