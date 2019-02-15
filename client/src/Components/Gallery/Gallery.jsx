@@ -1,6 +1,7 @@
 import React from 'react';
 import Styled from './GalleryStyles.js';
-import Modal from '../Modal/Modal.jsx'
+import Modal from '../Modal/Modal.jsx';
+import Carousel from '../Carousel/Carousel.jsx';
 
 class Gallery extends React.Component {
   constructor(props) {
@@ -110,7 +111,7 @@ class Gallery extends React.Component {
           </Styled.Gallery>
 
           <Modal show={this.state.isOpen} onClose={this.toggleModal}>
-            <ModalChildren toggle={this.toggleModal} data={this.props.data} current={this.state.currentImgId} />
+            <Carousel toggle={this.toggleModal} data={this.props.data} current={this.state.currentImgId} />
           </Modal>
 
         </div>
@@ -121,9 +122,7 @@ class Gallery extends React.Component {
   }
 }
 
-function ModalChildren(props) {
-  return <button onClick={props.toggle}>click</button>
-}
+
 
 
 export default Gallery; 
