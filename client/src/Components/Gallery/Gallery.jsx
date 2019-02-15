@@ -1,37 +1,43 @@
 import React from 'react';
 import Styled from './GalleryStyles.js';
-import 
 
 class Gallery extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      showModal: false,
+      currentImg: {}
     };
+
+    this.clickHandler = this.clickHandler.bind(this);
+  }
+
+  clickHandler(e) {
+    var newState = {
+      showModal: true,
+      currentImg: e.target.value
+    };
+    this.setState(newState);
+
+    console.log('click', this.state.currentImg, 'modal:', this.state.showModal)
   }
 
   render() {
-<<<<<<< HEAD
-=======
-    return (
-      <Styled.Gallery>
-        <Styled.Layout>
->>>>>>> d903c4a311108b57e10cffe87dcba730e0b78b26
-
     if(this.props.data.length !== 0){
       return (
         <Styled.Gallery>
           <Styled.Layout>
   
             <Styled.Item1>
-              <Styled.Button>
+              <Styled.Button value={this.props.data[0]} onClick={this.clickHandler}>
                 <Styled.PhotoContainer>
                   <Styled.Photo src={this.props.data[0].url}></Styled.Photo>
                 </Styled.PhotoContainer>
               </Styled.Button>
             </Styled.Item1>
-  
+
             <Styled.Item2>
-              <Styled.Button>
+              <Styled.Button value={this.props.data[1].url} onClick={this.clickHandler}>
                 <Styled.PhotoContainer>
                   <Styled.Photo src={this.props.data[1].url}></Styled.Photo>
                 </Styled.PhotoContainer>
@@ -39,7 +45,7 @@ class Gallery extends React.Component {
             </Styled.Item2>
   
             <Styled.Item3>
-              <Styled.Button>
+              <Styled.Button value={this.props.data[2].url} onClick={this.clickHandler}>
                 <Styled.PhotoContainer>
                   <Styled.Photo src={this.props.data[2].url}></Styled.Photo>
                 </Styled.PhotoContainer>
@@ -91,7 +97,9 @@ class Gallery extends React.Component {
                 <Styled.PhotoContainer>
                   <Styled.Photo 
                   src={this.props.data[8].url} ></Styled.Photo>
-                  <Styled.Overlay>+ {this.props.imgTotal - 9} more</Styled.Overlay>
+
+                  <Styled.LastItemOverlay>+ {this.props.imgTotal - 9} more</Styled.LastItemOverlay>
+                  
                 </Styled.PhotoContainer>
               </Styled.Button>
             </Styled.ItemLast>
@@ -104,5 +112,7 @@ class Gallery extends React.Component {
     }
   }
 }
+
+
 
 export default Gallery; 

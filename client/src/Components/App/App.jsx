@@ -3,8 +3,6 @@ import Styled from './AppStyles.js';
 import axios from 'axios';
 import Gallery from '../Gallery/Gallery.jsx'
 
-
-console.log(Gallery);
 class App extends React.Component {
   constructor(props) {
     super(props)
@@ -52,7 +50,9 @@ class App extends React.Component {
     return (
       <Styled.PhotoGallery>
         <Styled.Header>{this.state.numOfImages} Photos</Styled.Header>
+
         <Gallery data={this.state.currentById} imgTotal={this.state.numOfImages}/>
+
       </Styled.PhotoGallery>
     )
   }

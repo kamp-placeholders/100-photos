@@ -107,6 +107,7 @@ const Button = styled.a`
   position: relative;
   width: fill-available;
   height: fill-available;
+  
 `;
 
 const PhotoContainer = styled.div`
@@ -127,7 +128,7 @@ const Photo = styled.img`
   background-size: cover; 
 `;
 
-const Overlay = styled.div`
+const LastItemOverlay = styled.div`
 position: absolute;
 top: 0;
 left: 0;
@@ -148,4 +149,4 @@ line-height: 45px;
 }
 `;
 
-export default { Photo, PhotoContainer, Button, Overlay, ItemLast, Item6, Item7, Item8, Item5, Item4, Item3, Item2, Item1, Layout, Gallery }
+export default { Photo, PhotoContainer, Button, LastItemOverlay, ItemLast, Item6, Item7, Item8, Item5, Item4, Item3, Item2, Item1, Layout, Gallery }
