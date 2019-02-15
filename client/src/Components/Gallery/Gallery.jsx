@@ -108,10 +108,11 @@ class Gallery extends React.Component {
           </Styled.Gallery>
 
           <Modal show={this.state.isOpen}
-            onClose={this.toggleModal}>
+            onClose={this.toggleModal} data={this.props.data}>
             This is my Modal Content
+            <ModalChildButton />
           </Modal>
-          
+
         </div>
       )
     } else {
@@ -120,6 +121,9 @@ class Gallery extends React.Component {
   }
 }
 
+function ModalChildButton(props) {
+  return <button>click</button>
+}
 
 
 export default Gallery; 

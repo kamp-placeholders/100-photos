@@ -107,7 +107,6 @@ const Button = styled.a`
   position: relative;
   width: fill-available;
   height: fill-available;
-  
 `;
 
 const PhotoContainer = styled.div`
@@ -129,24 +128,24 @@ const Photo = styled.img`
 `;
 
 const LastItemOverlay = styled.div`
-position: absolute;
-top: 0;
-left: 0;
-clear: float;
-width: 100%;
-height: 100%;
-background-color: rgba(0, 0, 0, 0.5);
-color: #ffffff;
-text-align: center; 
--webkit-font-smoothing: antialiased;
-font-family: BrandonText,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
-font-size: 10px;
-font-weight: 200;
-line-height: 45px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  clear: float;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+  text-align: center; 
+  -webkit-font-smoothing: antialiased;
+  font-family: BrandonText,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+  font-size: 10px;
+  font-weight: 200;
+  line-height: 45px;
 
-:hover {
-  background-color: rgba(0, 0, 0, 0.65);
-}
+  :hover {
+    background-color: rgba(0, 0, 0, 0.65);
+  }
 `;
 
 export default { Photo, PhotoContainer, Button, LastItemOverlay, ItemLast, Item6, Item7, Item8, Item5, Item4, Item3, Item2, Item1, Layout, Gallery }
