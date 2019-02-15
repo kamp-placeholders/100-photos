@@ -1,26 +1,28 @@
 import React from 'react';
 import Styled from './ModalStyles.js';
 
-class Modal extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      
-    };
-  }
 
+class Modal extends React.Component {
   render() {
+    // Render nothing if the "show" prop is false
+    if(!this.props.show) {
+      return null;
+    }
+
     return (
-      <main>
-      <a>exit</a>
-      <div>
-        photo here
-      </div>
-      </main> 
-    )
+      <Styled.BackDropStyle>
+        <Styled.ModalStyle >
+          {this.props.children}
+          <div className="footer">
+            <button onClick={this.props.onClose}>
+              Close
+            </button>
+          </div>
+        </Styled.ModalStyle >
+      </Styled.BackDropStyle>
+    );
   }
 }
-
 
 export default Modal;
 
