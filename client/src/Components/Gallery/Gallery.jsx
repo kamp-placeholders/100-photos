@@ -6,21 +6,23 @@ class Gallery extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      currentImg: {},
+      currentImgId: 0,
       isOpen: false
     };
     this.toggleModal = this.toggleModal.bind(this);
   }
 
   toggleModal(e) {
-    this.setState({
-      currentImg: e.target.value,
+    var id = e.currentTarget.id
+    var newState = { 
+      currentImgId: id,
       isOpen: !this.state.isOpen
-    });
+    }
+    this.setState(newState);
   }
 
   render() {
-    console.log('state', this.state)
+    console.log(this.state.currentImgId)
     if (this.props.data.length !== 0) {
       return (
         <div>
@@ -29,7 +31,7 @@ class Gallery extends React.Component {
             <Styled.Layout>
 
               <Styled.Item1>
-                <Styled.Button value={this.props.data[0]} onClick={this.toggleModal}>
+                <Styled.Button id={this.props.data[0].id} onClick={this.toggleModal}>
                   <Styled.PhotoContainer>
                     <Styled.Photo src={this.props.data[0].url}></Styled.Photo>
                   </Styled.PhotoContainer>
@@ -37,15 +39,15 @@ class Gallery extends React.Component {
               </Styled.Item1>
 
               <Styled.Item2>
-                <Styled.Button value={this.props.data[1].url} onClick={this.toggleModal}>
-                  <Styled.PhotoContainer>
+                <Styled.Button id={this.props.data[1].id} onClick={this.toggleModal}>
+                  <Styled.PhotoContainer >
                     <Styled.Photo src={this.props.data[1].url}></Styled.Photo>
                   </Styled.PhotoContainer>
                 </Styled.Button>
               </Styled.Item2>
 
               <Styled.Item3>
-                <Styled.Button value={this.props.data[2].url} onClick={this.toggleModal}>
+                <Styled.Button id={this.props.data[2].id} onClick={this.toggleModal}>
                   <Styled.PhotoContainer>
                     <Styled.Photo src={this.props.data[2].url}></Styled.Photo>
                   </Styled.PhotoContainer>
@@ -53,7 +55,7 @@ class Gallery extends React.Component {
               </Styled.Item3>
 
               <Styled.Item4>
-                <Styled.Button value={this.props.data[3].url} onClick={this.toggleModal}>
+                <Styled.Button id={this.props.data[3].id} onClick={this.toggleModal}>
                   <Styled.PhotoContainer>
                     <Styled.Photo src={this.props.data[3].url} ></Styled.Photo>
                   </Styled.PhotoContainer>
@@ -61,7 +63,7 @@ class Gallery extends React.Component {
               </Styled.Item4>
 
               <Styled.Item5>
-                <Styled.Button value={this.props.data[4].url} onClick={this.toggleModal}>
+                <Styled.Button id={this.props.data[4].id} onClick={this.toggleModal}>
                   <Styled.PhotoContainer>
                     <Styled.Photo src={this.props.data[4].url} ></Styled.Photo>
                   </Styled.PhotoContainer>
@@ -69,7 +71,7 @@ class Gallery extends React.Component {
               </Styled.Item5>
 
               <Styled.Item6>
-                <Styled.Button value={this.props.data[5].url} onClick={this.toggleModal}>
+                <Styled.Button id={this.props.data[5].id} onClick={this.toggleModal}>
                   <Styled.PhotoContainer>
                     <Styled.Photo src={this.props.data[5].url} ></Styled.Photo>
                   </Styled.PhotoContainer>
@@ -77,7 +79,7 @@ class Gallery extends React.Component {
               </Styled.Item6>
 
               <Styled.Item7>
-                <Styled.Button value={this.props.data[6].url} onClick={this.toggleModal}>
+                <Styled.Button id={this.props.data[6].id} onClick={this.toggleModal}>
                   <Styled.PhotoContainer>
                     <Styled.Photo src={this.props.data[6].url} ></Styled.Photo>
                   </Styled.PhotoContainer>
@@ -85,7 +87,7 @@ class Gallery extends React.Component {
               </Styled.Item7>
 
               <Styled.Item8>
-                <Styled.Button value={this.props.data[7].url} onClick={this.toggleModal}>
+                <Styled.Button id={this.props.data[7].id} onClick={this.toggleModal}>
                   <Styled.PhotoContainer>
                     <Styled.Photo src={this.props.data[7].url} ></Styled.Photo>
                   </Styled.PhotoContainer>
@@ -93,7 +95,7 @@ class Gallery extends React.Component {
               </Styled.Item8>
 
               <Styled.ItemLast>
-                <Styled.Button value={this.props.data[8].url} onClick={this.toggleModal}>
+                <Styled.Button id={this.props.data[8].id} onClick={this.toggleModal}>
                   <Styled.PhotoContainer>
                     <Styled.Photo
                       src={this.props.data[8].url} ></Styled.Photo>
@@ -107,10 +109,8 @@ class Gallery extends React.Component {
             </Styled.Layout>
           </Styled.Gallery>
 
-          <Modal show={this.state.isOpen}
-            onClose={this.toggleModal} data={this.props.data}>
-            This is my Modal Content
-            <ModalChildButton />
+          <Modal show={this.state.isOpen} onClose={this.toggleModal}>
+            <ModalChildren toggle={this.toggleModal} data={this.props.data} current={this.state.currentImgId}/>
           </Modal>
 
         </div>
@@ -121,8 +121,8 @@ class Gallery extends React.Component {
   }
 }
 
-function ModalChildButton(props) {
-  return <button>click</button>
+function ModalChildren(props) {
+  return <button onClick={props.toggle}>click</button>
 }
 
 
