@@ -14,7 +14,7 @@ class Gallery extends React.Component {
 
   toggleModal(e) {
     var id = e.currentTarget.id
-    var newState = { 
+    var newState = {
       currentImgId: id,
       isOpen: !this.state.isOpen
     }
@@ -110,7 +110,7 @@ class Gallery extends React.Component {
           </Styled.Gallery>
 
           <Modal show={this.state.isOpen} onClose={this.toggleModal}>
-            <ModalChildren toggle={this.toggleModal} data={this.props.data} current={this.state.currentImgId}/>
+            <ModalChildren toggle={this.toggleModal} data={this.props.data} current={this.state.currentImgId} />
           </Modal>
 
         </div>
