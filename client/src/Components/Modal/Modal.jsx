@@ -31,11 +31,7 @@ class Modal extends React.Component {
     
     return ReactDOM.createPortal(
       <Styled.BackDropStyle>
-        <Styled.ModalStyle >
           {this.props.children}
-          <div className="footer">
-          </div>
-        </Styled.ModalStyle >
       </Styled.BackDropStyle>,
       this.el
       );
