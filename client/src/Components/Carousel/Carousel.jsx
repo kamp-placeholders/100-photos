@@ -1,9 +1,10 @@
 import React from 'react';
+import Styled from './CarouselStyles.js'
 
 class Carousel extends React.Component {
   render() 
   {
-    return <button onClick={props.toggle}>click</button>
+    return <Styled.Exit onClick={this.props.toggle}></Styled.Exit>
   }
 }
 
