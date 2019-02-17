@@ -24,7 +24,7 @@ coverage
 build/
 client/dist/*
 !client/dist/index.html
-
+!client/dist/flag.png
 .config.js
 
 client/src/sampleData.js
