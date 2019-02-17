@@ -1,7 +1,4 @@
 import styled from 'styled-components';
-import path from 'path';
-
-const flagPath = path.join(__dirname, 'flag.png');
 
 const Exit = styled.button`
   margin-top: 1px;
@@ -133,21 +130,22 @@ font-size: 8px;
   display: block;
 `;
 
-const Text = styled.div`
+const Text = styled.span`
   font-family: BrandonText,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
 
 `;
 
-const Strong = styled.div`
+const Strong = styled(Text)`
   font-family: BrandonText,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
   font-weight: 700;
 `;
 
 const Flag = styled.a`
-  position: absolute;
+  display: inline;
+  position: absolute; 
+  top: 0
   right: 0;
 `;
-
 
 
 export default {Exit, Content, Main, Flag, Photo, Text, Strong, PhotoContainer, Description, LeftButton, RightButton}

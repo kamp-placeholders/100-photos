@@ -1,5 +1,7 @@
 import React from 'react';
-import Styled from './CarouselStyles.js'
+import Styled from './CarouselStyles.js';
+import path from 'path';
+const flagPath = path.join(__dirname, 'flag.png');
 
 
 class Carousel extends React.Component {
@@ -9,7 +11,8 @@ class Carousel extends React.Component {
       photos: this.props.data, 
       currentId: Number(this.props.current),
       currentIndex: 0,
-      currentPhoto: {}
+      currentPhoto: {},
+      shortDate: ''
     }
 
     this.leftClickHandler = this.leftClickHandler.bind(this);
@@ -17,11 +20,7 @@ class Carousel extends React.Component {
   }
 
   componentDidMount() {
-    let allPhotos = this.state.photos; //array
-
-    //find the current photo by the ID and display that. 
-    //also, find the index of it and store it in state for the clickers
-
+    let allPhotos = this.state.photos; 
     let foundIndex = 0; 
     let foundCurrentPhoto = allPhotos.filter((item) => {
       if(item.id === this.state.currentId) {
@@ -30,13 +29,16 @@ class Carousel extends React.Component {
       return item.id === this.state.currentId; 
     });
 
+    var shortenedDate = foundCurrentPhoto[0].date.split(' ').splice(0,4).join(' ');
+
     let newState = {
       currentIndex: foundIndex,
-      currentPhoto: foundCurrentPhoto
+      currentPhoto: foundCurrentPhoto,
+      shortDate: shortenedDate
     }
       this.setState(newState);
   }
-  
+
   leftClickHandler(e) {
     if (this.state.currentIndex === 0){
       let newState = {
@@ -69,8 +71,6 @@ class Carousel extends React.Component {
 
   render() 
   {
-    console.log('state', this.state.currentIndex);
-    const i = this.state.index;
     return (
       <div>
         <Styled.Main>
@@ -83,13 +83,11 @@ class Carousel extends React.Component {
           
                   <Styled.Description>
                     <Styled.Text>
-                      <div>
-                        <Styled.Strong>{this.props.data[this.state.currentIndex].description}</Styled.Strong>{this.props.data[this.state.currentIndex].date}
-                      </div>
+                        <Styled.Strong>{this.props.data[this.state.currentIndex].description}</Styled.Strong> { this.state.shortDate}
                       <div>
                         {this.props.data[this.state.currentIndex].source}
                       </div>
-                      <Styled.Flag src='/Users/acaciapappas/Desktop/placeholders/100-photos/client/dist/flag.png'/>
+                      <Styled.Flag src={flagPath}/>
                     </Styled.Text>
                   
                   </Styled.Description>
