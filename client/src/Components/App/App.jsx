@@ -1,10 +1,9 @@
 import React from 'react';
 import Styled from './AppStyles.js';
 import axios from 'axios';
-import Gallery from '../Gallery/Gallery.jsx'
+import Gallery from '../Gallery/Gallery.jsx';
+import dummyData from '../../sampleData.js';
 
-
-console.log(Gallery);
 class App extends React.Component {
   constructor(props) {
     super(props)
@@ -12,7 +11,8 @@ class App extends React.Component {
     this.state = {
       data: [],
       currentById: [],
-      numOfImages: 0
+      numOfImages: 0,
+      header: ''
     }
   }
 
@@ -30,18 +30,33 @@ class App extends React.Component {
         var randomId = Math.floor(Math.random() * 100) + 1;
         var allImages = this.state.data;
 
-        var filteredById = allImages.filter((image) => {
+        let filteredById = allImages.filter((image) => {
           return Number(image.restaurant_id) === randomId
         })
+        
+        var relativeHeader = '';
+        console.log(this.state.data.length);
 
+        var length = filteredById.length; 
+        if(length > 1){
+          relativeHeader = length + ' Photos';
+        } else if (length === 1) {
+          relativeHeader = '1 Photo';
+        } else if(length === 0) {
+          relativeHeader = '0 Photos'
+        }
+
+        console.log(randomId, filteredById)
         let newState = {
           data: this.state.data,
           currentById: filteredById,
-          numOfImages: filteredById.length
+          numOfImages: filteredById.length,
+          header: relativeHeader
         }
 
         this.setState(newState);
       })
+
 
       .catch(function (error) {
         console.log(error);
@@ -49,10 +64,13 @@ class App extends React.Component {
   }
 
   render() {
+    console.log(this.state)
     return (
       <Styled.PhotoGallery>
-        <Styled.Header>{this.state.numOfImages} Photos</Styled.Header>
+        <Styled.Header>{this.state.header}</Styled.Header>
+
         <Gallery data={this.state.currentById} imgTotal={this.state.numOfImages}/>
+
       </Styled.PhotoGallery>
     )
   }
