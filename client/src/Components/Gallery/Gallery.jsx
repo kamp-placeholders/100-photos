@@ -23,7 +23,6 @@ class Gallery extends React.Component {
   }
 
   render() {
-    console.log(this.state.currentImgId)
     if (this.props.data.length !== 0) {
       return (
         <div>
