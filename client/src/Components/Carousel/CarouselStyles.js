@@ -1,10 +1,12 @@
 import styled from 'styled-components';
+import path from 'path';
+
+const flagPath = path.join(__dirname, 'flag.png');
 
 const Exit = styled.button`
   margin-top: 1px;
   margin-right: 2px;
   position:absolute;
-  font: 16px/100% arial, sans-serif;
   right: 5px;
   top: 5px;
   background-color: transparent;
@@ -31,6 +33,7 @@ const Exit = styled.button`
   
   :after {
     content: 'X'; 
+    font: 16px/100% arial;
   }
 `;
   
@@ -140,6 +143,11 @@ font-family: BrandonText,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvet
 font-weight: 700;
 `;
 
+const Flag = styled.a`
+  position: absolute;
+  right: 0;
+`;
 
 
-export default {Exit, Content, Main, Photo, Text, Strong, PhotoContainer, Description, LeftButton, RightButton}
+
+export default {Exit, Content, Main, Flag, Photo, Text, Strong, PhotoContainer, Description, LeftButton, RightButton}
