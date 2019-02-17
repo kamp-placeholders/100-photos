@@ -21,7 +21,7 @@ class App extends React.Component {
 
       .then((response) => {
         this.setState({
-          data: []
+          data: response.data
         });
       })
 
@@ -29,22 +29,24 @@ class App extends React.Component {
         //selects random restuarant id # to simulate get response.data.id
         var randomId = Math.floor(Math.random() * 100) + 1;
         var allImages = this.state.data;
-        var filteredById, relativeHeader = '';
 
+        let filteredById = allImages.filter((image) => {
+          return Number(image.restaurant_id) === randomId
+        })
+        
+        var relativeHeader = '';
         console.log(this.state.data.length);
-        if(this.state.data.length > 1){
-          filteredById = allImages.filter((image) => {
-            return Number(image.restaurant_id) === randomId
-          })
-          relativeHeader = this.state.data.length + ' Photos';
-        } else if (this.state.data.length === 1) {
-          filteredById = this.state.data; 
+
+        var length = filteredById.length; 
+        if(length > 1){
+          relativeHeader = length + ' Photos';
+        } else if (length === 1) {
           relativeHeader = '1 Photo';
-        } else if(this.state.data.length === 0) {
-          filteredById = [];
+        } else if(length === 0) {
           relativeHeader = '0 Photos'
         }
 
+        console.log(randomId, filteredById)
         let newState = {
           data: this.state.data,
           currentById: filteredById,
