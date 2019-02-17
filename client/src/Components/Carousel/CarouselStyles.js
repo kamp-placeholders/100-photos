@@ -37,8 +37,8 @@ const Exit = styled.button`
 const Main = styled.div`
   display: grid; 
   grid-template-columns: 20% 60% 20%;
-  border: solid white 1px;
   width: 660px;
+  height: auto; 
   min-height: 300px;
   min-height: 300px;
   justify-self: center;
@@ -47,16 +47,16 @@ const Main = styled.div`
 `;
 
 const Content = styled.div`
-border: solid green 2px;
 position: absolute;
 display: inline; 
 grid-area: auto / 2 / auto / span 1
 justify-content: center; 
-
-  width: 400px;
-  height: auto;
-  max-height: 590;
-  max-width: 590;
+width: 300px;
+height: 300px
+  top: 0;
+  left: 0; 
+  max-height: 490;
+  max-width: 490;
   min-height: 300px;
   min-height: 300px;
 `;
@@ -67,15 +67,19 @@ const LeftButton = styled.a`
   font-size: 1.2rem;
   position: absolute;
   top: 50%;
+  margin-left: 15%
   left: 0;
   font-family: icons;
   speak: none;
   font-style: normal;
-  font-weight: 700;
+  font-weight: 100;
   font-variant: normal;
   text-transform: none;
   line-height: 1;
-  content: ">";
+
+  :after {
+    content: '<'; 
+  }
 `;
 
 const RightButton = styled.a`
@@ -84,31 +88,32 @@ const RightButton = styled.a`
   font-size: 1.2rem;
   position: absolute;
   top: 50%;
+  margin-right: 30%
   font-family: icons;
   speak: none;
   font-style: normal;
-  font-weight: 700;
+  font-weight: 100;
   font-variant: normal;
   text-transform: none;
   line-height: 1;
   -webkit-font-smoothing: antialiased;
-  content: "<";
+  
+  :after {
+    content: '>'; 
+  }
 `;
 
 const PhotoContainer = styled.div`
-border: solid pink 1px;
-
 display: inline; 
+position: relative; 
   width: 300px;
-  height: 300px
-  max-height: 590;
-  max-width: 590;
+  max-height: 490;
+  max-width: 490;
   min-height: 200px;
   min-height: 200px;
 `;
 
 const Photo = styled.img`
-border: solid red 1px;
   justify-content: center;
   overflow: hidden;
   width: 100%;
@@ -118,8 +123,23 @@ border: solid red 1px;
 `;
 
 const Description = styled.div`
+font-size: 8px;
   color: white; 
+  font-family: BrandonText,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+-webkit-font-smoothing: antialiased;
+display: block;
+`;
+
+const Text = styled.div`
+font-family: BrandonText,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+
+`;
+
+const Strong = styled.div`
+font-family: BrandonText,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+font-weight: 700;
 `;
 
 
-export default {Exit, Content, Main, Photo, PhotoContainer, Description, LeftButton, RightButton}
+
+export default {Exit, Content, Main, Photo, Text, Strong, PhotoContainer, Description, LeftButton, RightButton}
