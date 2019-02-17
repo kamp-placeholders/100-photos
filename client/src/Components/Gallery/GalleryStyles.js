@@ -10,6 +10,15 @@ const Gallery = styled.div`
   display: inline;
 `;
 
+const SinglePhoto = styled.img`
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  background-size: cover; 
+`;
+
 const Layout = styled.ul`
   display: grid;
   grid-gap: 1px;
@@ -127,25 +136,25 @@ const Photo = styled.img`
   background-size: cover; 
 `;
 
-const Overlay = styled.div`
-position: absolute;
-top: 0;
-left: 0;
-clear: float;
-width: 100%;
-height: 100%;
-background-color: rgba(0, 0, 0, 0.5);
-color: #ffffff;
-text-align: center; 
--webkit-font-smoothing: antialiased;
-font-family: BrandonText,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
-font-size: 10px;
-font-weight: 200;
-line-height: 45px;
+const LastItemOverlay = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  clear: float;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+  text-align: center; 
+  -webkit-font-smoothing: antialiased;
+  font-family: BrandonText,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+  font-size: 10px;
+  font-weight: 200;
+  line-height: 45px;
 
-:hover {
-  background-color: rgba(0, 0, 0, 0.65);
-}
+  :hover {
+    background-color: rgba(0, 0, 0, 0.65);
+  }
 `;
 
-export default { Photo, PhotoContainer, Button, Overlay, ItemLast, Item6, Item7, Item8, Item5, Item4, Item3, Item2, Item1, Layout, Gallery }
+export default { Photo, PhotoContainer, Button, LastItemOverlay, ItemLast, Item6, Item7, Item8, Item5, Item4, Item3, Item2, Item1, Layout, Gallery, SinglePhoto }
