@@ -9,7 +9,7 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-    "test": "jest",
+    "test": "jest --verbose",
     "build": "webpack -d --watch",
     "start": "nodemon ./server/server.js ",
     "seed": "node ./data_generator/seed_data.js"
