@@ -1,15 +1,15 @@
 import styled from 'styled-components';
 
-const Overlay = styled.main`
-
+const BackDropStyle = styled.div`
+  background-color: rgba(0,0,0,0.85);
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
-const Exit = styled.a`
-
-`;
-
-const PhotoContent = styled.div`
-
-`;
-
-export default {Overlay, Exit, PhotoContent};
+export default {BackDropStyle};
