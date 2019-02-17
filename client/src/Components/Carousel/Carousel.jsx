@@ -30,25 +30,46 @@ class Carousel extends React.Component {
       return item.id === this.state.currentId; 
     });
 
-  let newState = {
-    currentIndex: foundIndex,
-    currentPhoto: foundCurrentPhoto
-  }
-    this.setState(newState);
+    let newState = {
+      currentIndex: foundIndex,
+      currentPhoto: foundCurrentPhoto
+    }
+      this.setState(newState);
   }
   
   leftClickHandler(e) {
-    console.log('left click')
+    if (this.state.currentIndex === 0){
+      let newState = {
+        currentIndex: this.state.photos.length - 1
+      }
+      this.setState(newState);      
+    } else {
+      let newState = {
+        currentIndex: this.state.currentIndex - 1
+      }
+      this.setState(newState);
+    }
   }
 
   rightClickHandler(e) {
-    console.log('right click')
+    let length = this.state.photos.length - 1
+    if (this.state.currentIndex === length){
+      let newState = {
+        currentIndex: 0
+      }
+      this.setState(newState);      
 
+    } else {
+      let newState = {
+        currentIndex: this.state.currentIndex + 1
+      }
+      this.setState(newState);
+    }
   }
 
   render() 
   {
-    console.log('state', this.state);
+    console.log('state', this.state.currentIndex);
     const i = this.state.index;
     return (
       <div>
