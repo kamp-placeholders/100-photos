@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Styled from './ModalStyles.js';
 
-const appRoot = document.getElementById('app');
 const modalRoot = document.getElementById('modal');
 
 

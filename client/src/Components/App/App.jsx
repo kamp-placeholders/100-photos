@@ -1,8 +1,8 @@
 import React from 'react';
 import Styled from './AppStyles.js';
 import axios from 'axios';
-import Gallery from '../Gallery/Gallery.jsx'
-import Modal from '../Modal/Modal.jsx'
+import Gallery from '../Gallery/Gallery.jsx';
+import dummyData from '../../sampleData.js';
 
 class App extends React.Component {
   constructor(props) {
@@ -11,7 +11,8 @@ class App extends React.Component {
     this.state = {
       data: [],
       currentById: [],
-      numOfImages: 0
+      numOfImages: 0,
+      header: ''
     }
   }
 
@@ -20,7 +21,7 @@ class App extends React.Component {
 
       .then((response) => {
         this.setState({
-          data: response.data
+          data: []
         });
       })
 
@@ -28,19 +29,32 @@ class App extends React.Component {
         //selects random restuarant id # to simulate get response.data.id
         var randomId = Math.floor(Math.random() * 100) + 1;
         var allImages = this.state.data;
+        var filteredById, relativeHeader = '';
 
-        var filteredById = allImages.filter((image) => {
-          return Number(image.restaurant_id) === randomId
-        })
+        console.log(this.state.data.length);
+        if(this.state.data.length > 1){
+          filteredById = allImages.filter((image) => {
+            return Number(image.restaurant_id) === randomId
+          })
+          relativeHeader = this.state.data.length + ' Photos';
+        } else if (this.state.data.length === 1) {
+          filteredById = this.state.data; 
+          relativeHeader = '1 Photo';
+        } else if(this.state.data.length === 0) {
+          filteredById = [];
+          relativeHeader = '0 Photos'
+        }
 
         let newState = {
           data: this.state.data,
           currentById: filteredById,
-          numOfImages: filteredById.length
+          numOfImages: filteredById.length,
+          header: relativeHeader
         }
 
         this.setState(newState);
       })
+
 
       .catch(function (error) {
         console.log(error);
@@ -48,9 +62,10 @@ class App extends React.Component {
   }
 
   render() {
+    console.log(this.state)
     return (
       <Styled.PhotoGallery>
-        <Styled.Header>{this.state.numOfImages} Photos</Styled.Header>
+        <Styled.Header>{this.state.header}</Styled.Header>
 
         <Gallery data={this.state.currentById} imgTotal={this.state.numOfImages}/>
 
