@@ -10,6 +10,15 @@ const Gallery = styled.div`
   display: inline;
 `;
 
+const SinglePhoto = styled.img`
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  background-size: cover; 
+`;
+
 const Layout = styled.ul`
   display: grid;
   grid-gap: 1px;
@@ -148,4 +157,4 @@ const LastItemOverlay = styled.div`
   }
 `;
 
-export default { Photo, PhotoContainer, Button, LastItemOverlay, ItemLast, Item6, Item7, Item8, Item5, Item4, Item3, Item2, Item1, Layout, Gallery }
+export default { Photo, PhotoContainer, Button, LastItemOverlay, ItemLast, Item6, Item7, Item8, Item5, Item4, Item3, Item2, Item1, Layout, Gallery, SinglePhoto }

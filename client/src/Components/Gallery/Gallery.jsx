@@ -23,7 +23,7 @@ class Gallery extends React.Component {
   }
 
   render() {
-    if (this.props.data.length !== 0) {
+    if (this.props.data.length > 9) {
       return (
         <div>
 
@@ -115,7 +115,13 @@ class Gallery extends React.Component {
 
         </div>
       )
-    } else {
+    } else if(this.props.data.length < 9 && this.props.data.length !== 0){
+      return (
+      <Styled.Gallery>
+        <Styled.SinglePhoto src={this.props.data[0].url}></Styled.SinglePhoto>
+      </Styled.Gallery>
+      )
+    } else if (this.props.data.length === 0) {
       return <div></div>
     }
   }

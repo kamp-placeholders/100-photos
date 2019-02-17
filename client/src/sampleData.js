@@ -6,7 +6,8 @@ const data = [
         "description": "Vitae sunt magni accusantium et et et.",
         "date": "Sun Jan 06 2019 13:07:19 GMT-0800 (Pacific Standard Time)",
         "source": "dolorum fugit id"
-    },
+    }
+    ,
     {
         "id": 2,
         "url": "https://s3-us-west-1.amazonaws.com/placeholders.carousel.photos/00088.jpg",
@@ -118,6 +119,7 @@ const data = [
         "description": "Quis qui velit laudantium non at molestiae earum ipsa.",
         "date": "Sat Dec 29 2018 00:56:30 GMT-0800 (Pacific Standard Time)",
         "source": "nostrum expedita dolorem"
-    }]
+    }
+]
    
 export default data; 
