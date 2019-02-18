@@ -15,15 +15,15 @@ describe("Carousel Component", () => {
   test("renders", () => {
     expect(wrapperShallow.exists()).toBe(true);
   })
-  test("match snapshot", () => {
+  test("matches snapshot", () => {
     expect(wrapperMount).toMatchSnapshot()
   })
-  test("an exit button exists and works", () => {
+  test("exit button exists and works", () => {
     expect(
       wrapperMount.find('button').text()
     ).toEqual('X').simulate('click');
   })
-  test("right and left buttons work", () => {
+  test("include right and left buttons", () => {
     expect(
       wrapperMount.find('button').toEqual('<').simulate('click')
       );
