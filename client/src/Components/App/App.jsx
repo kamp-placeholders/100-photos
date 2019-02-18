@@ -46,7 +46,6 @@ class App extends React.Component {
           relativeHeader = '0 Photos'
         }
 
-        console.log(randomId, filteredById)
         let newState = {
           data: this.state.data,
           currentById: filteredById,

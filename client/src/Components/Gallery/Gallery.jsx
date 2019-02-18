@@ -23,10 +23,9 @@ class Gallery extends React.Component {
   }
 
   render() {
-    if (this.props.data.length > 9) {
+    if (this.props.data.length > 9 && this.props.data.length !== 0) {
       return (
         <div>
-
           <Styled.Gallery>
             <Styled.Layout>
 

@@ -10,4 +10,14 @@ describe("Carousel Component", () => {
     const wrapper = shallow(<Carousel/>);
     expect(wrapper.exists()).toBe(true);
   })
+  test("match snapshot", () => {
+    const wrapper = mount(<Carousel/>);
+    expect(wrapper).toMatchSnapshot()
+  })
+  test("an exit button exists", () => {
+    const wrapper = mount(<Carousel/>);
+    expect(
+      wrap.find('button').text()
+    ).toEqual('X')
+  })
 });
