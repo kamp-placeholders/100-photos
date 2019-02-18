@@ -47,12 +47,12 @@ const Main = styled.div`
 `;
 
 const Content = styled.div`
-position: absolute;
-display: inline; 
-grid-area: auto / 2 / auto / span 1
-justify-content: center; 
-width: 300px;
-height: 300px
+  position: relative;
+  display: inline; 
+  grid-area: auto / 2 / auto / span 1;
+  justify-content: center; 
+  width: 400px;
+  height: 400px
   top: 0;
   left: 0; 
   max-height: 490;
