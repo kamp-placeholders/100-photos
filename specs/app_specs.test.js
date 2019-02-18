@@ -18,7 +18,7 @@ describe("App component", () => {
     const wrapper = mount(<App />)
     expect(wrapper).toMatchSnapshot()
   })
-  test("data in state present", () => {
+  test("data in state present after mounting", () => {
     const wrapper = mount(<App />)
     expect(wrapper.state('data')).toBeTruthy();
     expect(wrapper.state('numOfImages')).toBeGreaterThanOrEqual(0)
