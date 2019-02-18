@@ -6,12 +6,8 @@ import Adapter from 'enzyme-adapter-react-16';
 Enzyme.configure({ adapter: new Adapter() });
 
 describe("Gallery component", () => {
+  const wrapper = mount(<Gallery/>);
   test("renders", () => {
-    const wrapper = shallow(<Gallery/>);
-    expect(wrapper.exists()).toBe(true);
-  })
-  test("match snapshot", () => {
-    const wrapper = mount(<Gallery/>);
-    expect(wrapper).toMatchSnapshot()
-  })
-});
+      expect(wrapper.exists()).toBe(true);
+    })
+  });
