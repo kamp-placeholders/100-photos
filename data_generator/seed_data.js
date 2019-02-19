@@ -25,9 +25,9 @@ var query = `INSERT INTO photos (url, restaurant_id, description, date, source) 
 }
 
 var populatePhotosTable = function () {
-  for (var i = 0; i < 100; i++) {
+  for (var i = 0; i < 700; i++) {
     var query = insertPhotoRow();
-    //use promises here for async work?
+
     db.query(query, (err) => {
       if (err) { 
         console.log(err);
@@ -40,6 +40,4 @@ var populatePhotosTable = function () {
 populatePhotosTable();
 
 module.exports.db = db; 
-// module.exports.populatePhotosTable = populatePhotosTable; 
-// module.exports.insertPhotoRow = insertPhotoRow; 
-// module.exports.randomImage = randomImage; 
+
