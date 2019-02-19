@@ -15,9 +15,9 @@ describe("Carousel Component", () => {
   test("renders", () => {
     expect(wrapperShallow.exists()).toBe(true);
   })
-  test("matches snapshot", () => {
-    expect(wrapperMount).toMatchSnapshot()
-  })
+  // test("matches snapshot", () => {
+  //   expect(wrapperMount).toMatchSnapshot()
+  // })
   test("exit button exists and works", () => {
     expect(
       wrapperMount.find('button').text()

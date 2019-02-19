@@ -4,14 +4,16 @@ const morgan = require('morgan');
 const parser = require('body-parser');
 const db = require('../database/index.js');
 const mysql = require('mysql');
+const cors = require('cors');
 
 var PORT = 3002;
-var app = express()
+var app = express();
 
 db.connect();
 
 app.use(morgan('dev'));
 app.use(parser.json());
+app.use(cors());
 
 app.use(express.static('./client/dist'));
 
