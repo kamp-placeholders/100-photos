@@ -29,8 +29,9 @@ var populatePhotosTable = function () {
     var query = insertPhotoRow();
     //use promises here for async work?
     db.query(query, (err) => {
-      if (err) { }
-      console.log(err);
+      if (err) { 
+        console.log(err);
+      }
       return;
     })
   }
