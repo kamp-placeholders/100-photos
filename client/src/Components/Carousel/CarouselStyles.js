@@ -36,7 +36,7 @@ const Exit = styled.button`
   
 const Main = styled.div`
   display: grid; 
-  grid-template-columns: 20% 60% 20%;
+  grid-template-columns: 25% 50% 25%;
   width: 660px;
   height: auto; 
   min-height: 300px;
@@ -51,7 +51,7 @@ const Content = styled.div`
   display: inline; 
   grid-area: auto / 2 / auto / span 1;
   justify-content: center; 
-  width: 400px;
+  width: 320px;
   height: 400px
   top: 0;
   left: 0; 
@@ -62,7 +62,7 @@ const Content = styled.div`
 `;
 
 const LeftButton = styled.a`
-  left: 0;
+  left: 22%;
   color: #91949a;
   font-size: 1.2rem;
   position: absolute;
@@ -83,12 +83,12 @@ const LeftButton = styled.a`
 `;
 
 const RightButton = styled.a`
-  right: 0;
+  right: 24%;
   color: white; 
   font-size: 1.2rem;
   position: absolute;
   top: 50%;
-  margin-right: 30%
+  margin-right: 60%
   font-family: icons;
   speak: none;
   font-style: normal;
@@ -104,13 +104,15 @@ const RightButton = styled.a`
 `;
 
 const PhotoContainer = styled.div`
-display: inline; 
+display: inline-block; 
 position: relative; 
-  width: 300px;
+  width: 320px;
+  height: 320px;
   max-height: 490;
   max-width: 490;
   min-height: 200px;
   min-height: 200px;
+  overflow: hidden; 
 `;
 
 const Photo = styled.img`
