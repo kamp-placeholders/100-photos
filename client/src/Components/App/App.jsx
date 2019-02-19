@@ -10,34 +10,21 @@ class App extends React.Component {
 
     this.state = {
       data: [],
-      currentById: [],
       numOfImages: 0,
       header: ''
     }
   }
 
   componentDidMount() {
-    axios.get('http://localhost:3002/api/photos')
+    // var randomId = Math.floor(Math.random() * 100) + 1; // => use this to dynamically render
+    var setId = 1; 
+    axios.get(`http://localhost:3002/api/photos/${setId}`)
 
       .then((response) => {
-        this.setState({
-          data: response.data
-        });
-      })
-
-      .then(() => {
-        //selects random restuarant id # to simulate get response.data.id
-        var randomId = Math.floor(Math.random() * 100) + 1;
-        var allImages = this.state.data;
-
-        let filteredById = allImages.filter((image) => {
-          return Number(image.restaurant_id) === randomId
-        })
-        
+        var photos = response.data; 
         var relativeHeader = '';
-        console.log(this.state.data.length);
 
-        var length = filteredById.length; 
+        var length = photos.length; 
         if(length > 1){
           relativeHeader = length + ' Photos';
         } else if (length === 1) {
@@ -47,14 +34,43 @@ class App extends React.Component {
         }
 
         let newState = {
-          data: this.state.data,
-          currentById: filteredById,
-          numOfImages: filteredById.length,
+          data: photos,
+          numOfImages: photos.length,
           header: relativeHeader
         }
 
         this.setState(newState);
       })
+
+      // .then(() => {
+      //   //selects random restuarant id # to simulate get response.data.id
+      //   var randomId = Math.floor(Math.random() * 100) + 1;
+      //   var allImages = this.state.data;
+
+      //   let filteredById = allImages.filter((image) => {
+      //     return Number(image.restaurant_id) === randomId
+      //   })
+        
+      //   var relativeHeader = '';
+
+      //   var length = this.state.length; 
+      //   if(length > 1){
+      //     relativeHeader = length + ' Photos';
+      //   } else if (length === 1) {
+      //     relativeHeader = '1 Photo';
+      //   } else if(length === 0) {
+      //     relativeHeader = '0 Photos'
+      //   }
+
+      //   let newState = {
+      //     data: this.state.data,
+      //     currentById: filteredById,
+      //     numOfImages: filteredById.length,
+      //     header: relativeHeader
+      //   }
+
+      //   this.setState(newState);
+      // })
 
 
       .catch(function (error) {
@@ -63,12 +79,12 @@ class App extends React.Component {
   }
 
   render() {
-    console.log(this.state)
+    console.log("state", this.state);
     return (
       <Styled.PhotoGallery>
         <Styled.Header>{this.state.header}</Styled.Header>
 
-        <Gallery data={this.state.currentById} imgTotal={this.state.numOfImages}/>
+        <Gallery data={this.state.data} imgTotal={this.state.numOfImages}/>
 
       </Styled.PhotoGallery>
     )
