@@ -4,12 +4,11 @@ import styled from 'styled-components';
 const PhotoGallery = styled.div`
   padding: 5px;
   justify-content: center;
-  position: static;
   max-height: 100%; 
   max-width: 613px;
   min-height: 100%; 
   min-width: 352px;
-  position: absolute;
+  position: relative;
   `;
 
 const Header = styled.h2`
