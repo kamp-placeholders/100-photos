@@ -1,7 +1,7 @@
 const faker = require('faker');
 const mysql = require('mysql');
 const zeroFill = require('zero-fill');
-const db = require('../database/index.js')
+const db = require('../database/index.js');
 
 db.connect();
 
@@ -19,7 +19,7 @@ var insertPhotoRow = function () {
   let date = faker.date.past().toString();
   let source = faker.lorem.words();
 
-var query = `INSERT INTO photos (url, restaurant_id, description, date, source) VALUES (
+  var query = `INSERT INTO photos (url, restaurant_id, description, date, source) VALUES (
   '${url}', '${restaurant_id}', '${description}', '${date}', '${source}');`
 
   return query;
@@ -30,7 +30,7 @@ var populatePhotosTable = function () {
     var query = insertPhotoRow();
 
     db.query(query, (err) => {
-      if (err) { 
+      if (err) {
         console.log(err);
       }
       return;
@@ -40,5 +40,5 @@ var populatePhotosTable = function () {
 
 populatePhotosTable();
 
-module.exports.db = db; 
+module.exports.db = db;
 
