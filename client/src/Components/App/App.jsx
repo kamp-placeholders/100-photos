@@ -24,6 +24,10 @@ class App extends React.Component {
         var photos = response.data;
         var relativeHeader = '';
 
+        if(photos.length > 100) {
+          photos = photos.slice(0, 100);
+        }
+
         var length = photos.length;
         if (length > 1) {
           relativeHeader = length + ' Photos';
