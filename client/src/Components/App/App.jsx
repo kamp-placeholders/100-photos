@@ -17,19 +17,19 @@ class App extends React.Component {
 
   componentDidMount() {
     // var randomId = Math.floor(Math.random() * 100) + 1; // => use this to dynamically render
-    var setId = 1; 
+    var setId = 1;
     axios.get(`http://localhost:3002/api/photos/${setId}`)
 
       .then((response) => {
-        var photos = response.data; 
+        var photos = response.data;
         var relativeHeader = '';
 
-        var length = photos.length; 
-        if(length > 1){
+        var length = photos.length;
+        if (length > 1) {
           relativeHeader = length + ' Photos';
         } else if (length === 1) {
           relativeHeader = '1 Photo';
-        } else if(length === 0) {
+        } else if (length === 0) {
           relativeHeader = '0 Photos'
         }
 
@@ -41,38 +41,6 @@ class App extends React.Component {
 
         this.setState(newState);
       })
-
-      // .then(() => {
-      //   //selects random restuarant id # to simulate get response.data.id
-      //   var randomId = Math.floor(Math.random() * 100) + 1;
-      //   var allImages = this.state.data;
-
-      //   let filteredById = allImages.filter((image) => {
-      //     return Number(image.restaurant_id) === randomId
-      //   })
-        
-      //   var relativeHeader = '';
-
-      //   var length = this.state.length; 
-      //   if(length > 1){
-      //     relativeHeader = length + ' Photos';
-      //   } else if (length === 1) {
-      //     relativeHeader = '1 Photo';
-      //   } else if(length === 0) {
-      //     relativeHeader = '0 Photos'
-      //   }
-
-      //   let newState = {
-      //     data: this.state.data,
-      //     currentById: filteredById,
-      //     numOfImages: filteredById.length,
-      //     header: relativeHeader
-      //   }
-
-      //   this.setState(newState);
-      // })
-
-
       .catch(function (error) {
         console.log(error);
       });
@@ -84,7 +52,7 @@ class App extends React.Component {
       <Styled.PhotoGallery>
         <Styled.Header>{this.state.header}</Styled.Header>
 
-        <Gallery data={this.state.data} imgTotal={this.state.numOfImages}/>
+        <Gallery data={this.state.data} imgTotal={this.state.numOfImages} />
 
       </Styled.PhotoGallery>
     )

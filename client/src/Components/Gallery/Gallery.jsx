@@ -3,6 +3,8 @@ import Styled from './GalleryStyles.js';
 import Modal from '../Modal/Modal.jsx';
 import Carousel from '../Carousel/Carousel.jsx';
 
+
+
 class Gallery extends React.Component {
   constructor(props) {
     super(props)
