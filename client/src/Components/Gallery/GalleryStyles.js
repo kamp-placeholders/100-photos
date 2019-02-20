@@ -16,13 +16,11 @@ const SinglePhoto = styled.img`
 `;
 
 const Layout = styled.ul`
+overflow: hidden; 
   display: grid;
   grid-gap: 1px;
   grid-template-columns: 23% 45% 15% 15%;
-  grid-template-rows: 5vh 5vh 5vh 5vh 5vh 5vh;
-  @media (min-width: 1000px) {
-    grid-template-rows: 3vh 3vh 3vh 3vh 3vh 3vh;    
-  }
+  grid-template-rows: repeat(6, 2.73vh);
   margin: 0 auto;
   list-style: none;
   padding-left: 0;
@@ -36,9 +34,9 @@ const Item1 = styled.li`
 `;
 
 const Item2 = styled.li`
-overflow: hidden;
   grid-area: 4 / 1 / end; 
   display: inline-block; 
+  overflow: hidden;
 `;
 
 const Item3 = styled.li`
@@ -48,8 +46,8 @@ overflow: hidden;
 `;
 
 const Item4 = styled.li`
-overflow: hidden;
   grid-area: 1 / 3 / span 2 / span 1; 
+  overflow: hidden;
   display: inline-block; 
 `;
 
@@ -91,9 +89,9 @@ const Button = styled.a`
 `;
 
 const PhotoContainer = styled.div`
-  display: block;
-  width: fill-available;
-  height: fill-available;
+display: block; 
+  width: 100%;
+  height: 100%;
   justify-content: center;
   position: relative;
 `;
