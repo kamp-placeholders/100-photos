@@ -51,7 +51,6 @@ class App extends React.Component {
   }
 
   render() {
-    console.log("state", this.state);
     return (
       <Styled.PhotoGallery>
         <Styled.Header>{this.state.header}</Styled.Header>
