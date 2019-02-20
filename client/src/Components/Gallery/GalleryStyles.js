@@ -4,11 +4,6 @@ const {styled} = window;
 const Gallery = styled.div`
   position: relative;
   justify-content: center;
-  max-height: auto; 
-  max-width: auto;
-  min-height: auto; 
-  min-width: auto;
-  display: inline;
 `;
 
 const SinglePhoto = styled.img`
@@ -24,7 +19,10 @@ const Layout = styled.ul`
   display: grid;
   grid-gap: 1px;
   grid-template-columns: 23% 45% 15% 15%;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 5vh 5vh 5vh 5vh 5vh 5vh;
+  @media (min-width: 1000px) {
+    grid-template-rows: 3vh 3vh 3vh 3vh 3vh 3vh;    
+  }
   margin: 0 auto;
   list-style: none;
   padding-left: 0;
@@ -32,83 +30,56 @@ const Layout = styled.ul`
 `;
 
 const Item1 = styled.li`
-  max-height: 139px; 
-  max-width: 139px;
-  min-height: 76px; 
-  min-width: 76px;
+  overflow: hidden;
   grid-area: 1 / 1 / 4 / span 1;
   display: inline-block; 
 `;
 
 const Item2 = styled.li`
-  max-height: 139px; 
-  max-width: 139px;
-  min-height: 76px; 
-  min-width: 76px;
+overflow: hidden;
   grid-area: 4 / 1 / end; 
   display: inline-block; 
 `;
 
 const Item3 = styled.li`
-  max-height: 280px; 
-  max-width: 280px;
-  min-height: 154px; 
-  min-width: 154px;
+overflow: hidden;
   grid-area: 1 / 2 / end / span 1; 
   display: inline-block; 
 `;
 
 const Item4 = styled.li`
-  max-height: 92px; 
-  max-width: 92px;
-  min-height: 50px; 
-  min-width: 50px;
+overflow: hidden;
   grid-area: 1 / 3 / span 2 / span 1; 
   display: inline-block; 
 `;
 
 
 const Item5 = styled.li`
-  max-height: 92px; 
-  max-width: 92px;
-  min-height: 50px; 
-  min-width: 50px;
+overflow: hidden;
   grid-area: 1 / 4 / span 2 / span 1; 
   display: inline-block; 
 `;
 
 const Item6 = styled.li`
-  max-height: 92px; 
-  max-width: 92px;
-  min-height: 50px; 
-  min-width: 50px;
+overflow: hidden;
   grid-area: 3 / 3 / span 2 / span 1; 
   display: inline-block; 
 `;
 
 const Item7 = styled.li`
-  max-height: 92px; 
-  max-width: 92px;
-  min-height: 50px; 
-  min-width: 50px;
+overflow: hidden;
   grid-area: 3 / 4 / span 2 / span 1; 
   display: inline-block; 
 `;
 
 const Item8 = styled.li`
-  max-height: 92px; 
-  max-width: 92px;
-  min-height: 50px; 
-  min-width: 50px;
+overflow: hidden;
   grid-area: 5 / 3 / span 2 / span 1;
   display: inline-block; 
 `;
 
 const ItemLast = styled.li`
-  max-height: 92px; 
-  max-width: 92px;
-  min-height: 50px; 
-  min-width: 50px;
+overflow: hidden;
   grid-area: 5 / 4 / span 2 / span 1; 
   display: inline-block; 
 `;
@@ -125,15 +96,12 @@ const PhotoContainer = styled.div`
   height: fill-available;
   justify-content: center;
   position: relative;
-  }
 `;
 
 const Photo = styled.img`
   justify-content: center;
-  position: absolute;
   overflow: hidden;
   width: 100%;
-  height: 100%;
   background-size: cover; 
 `;
 
