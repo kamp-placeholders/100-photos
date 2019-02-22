@@ -19,19 +19,6 @@ app.use(cors());
 
 app.use(express.static('./client/dist'));
 
-app.get('/:restaurantId', function (req, res) {
-  var id = req.params.restaurantId; 
-  getPhotosById( id, (error, data) => {
-    if(error) {
-      console.log(error);
-      return;
-    }
-    res.set('font-src','none')
-    res.status(200).send(data);
-  });
-
-})
-
 app.get('/api/photos/:restaurantId', function (req, res) {
   var id = req.params.restaurantId; 
   getPhotosById(id, (error, data) => {
