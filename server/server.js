@@ -21,8 +21,6 @@ app.use('/:restaurantId', express.static('./client/dist'));
 
 app.get('/photos/:restaurantId', function (req, res) {
   var id = Number(req.params.restaurantId); 
-  console.log('restaurantId', id);
-
   getPhotosById(id, (error, data) => {
     if(error) {
       console.log(error);

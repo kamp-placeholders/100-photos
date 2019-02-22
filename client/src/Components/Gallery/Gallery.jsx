@@ -3,8 +3,6 @@ import Styled from './GalleryStyles.js';
 import Modal from '../Modal/Modal.jsx';
 import Carousel from '../Carousel/Carousel.jsx';
 
-
-
 class Gallery extends React.Component {
   constructor(props) {
     super(props)
@@ -29,13 +27,32 @@ class Gallery extends React.Component {
       return (
         <div>
           <Styled.Gallery>
-              {this.props.data.map((item, i) => {
-                if (i < 9) {
-                  return <Styled.PhotoContainer id={i}  onClick={this.toggleModal}>
-                    <Styled.Photo src={item.url}></Styled.Photo>
-                  </Styled.PhotoContainer>
-                }
-              })}
+            {this.props.data.map((item, i) => {
+              if (i < 8) {
+                return (
+                  <div
+                    id={`photo${i}`}
+                    key={item.id}
+                    className="photo"
+                    onClick={this.toggleModal}
+                    style={{
+                      backgroundImage: `url(${item.url})`
+                    }}
+                  />
+                )
+              }
+            })}
+            <div
+              id="photo8"
+              className="photo"
+              onClick={this.toggleModal}
+              style={{
+                backgroundImage: `url(${this.props.data[8].url})`
+              }}
+            /><div class="overlay">
+                <p>+ {this.props.imgTotal - 9} more</p>
+              </div>
+            <div/>
           </Styled.Gallery>
 
           <Modal show={this.state.isOpen} onClose={this.toggleModal}>
@@ -44,11 +61,11 @@ class Gallery extends React.Component {
 
         </div>
       )
-    } else if(this.props.data.length < 9 && this.props.data.length !== 0){
+    } else if (this.props.data.length < 9 && this.props.data.length !== 0) {
       return (
-      <Styled.Gallery>
-        <Styled.SinglePhoto src={this.props.data[0].url}></Styled.SinglePhoto>
-      </Styled.Gallery>
+        <Styled.Gallery>
+          <Styled.SinglePhoto src={this.props.data[0].url}></Styled.SinglePhoto>
+        </Styled.Gallery>
       )
     } else if (this.props.data.length === 0) {
       return <div></div>

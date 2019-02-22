@@ -2,7 +2,6 @@ import React from 'react';
 import Styled from './AppStyles.js';
 import axios from 'axios';
 import Gallery from '../Gallery/Gallery.jsx';
-import dummyData from '../../sampleData.js';
 import { relative } from 'path';
 
 class App extends React.Component {
@@ -22,14 +21,12 @@ class App extends React.Component {
     } else {
       setId = window.location.pathname.split('').slice(1).join('');
     } 
-    setId = 1; 
  
-    //hard code url from es2
-    axios.get(`/photos${setId}`)
-      .then((response) => {
-        var photos = response.data;
+    //hard code url from es2 later...
+    axios.get(`/photos/${setId}`)
+    .then((response) => {
         let newState = {
-          data: photos
+          data: response.data
         }
         this.setState(newState);
       })
