@@ -8,7 +8,7 @@ const cors = require('cors');
 var SqlString = require('sqlstring');
 
 
-var PORT = 3009;
+var PORT = 3002;
 var app = express();
 
 db.connect();
@@ -19,8 +19,10 @@ app.use(cors());
 
 app.use(express.static('./client/dist'));
 
-app.get('/api/photos/:restaurantId', function (req, res) {
-  var id = req.params.restaurantId; 
+app.get('/:restaurantId', function (req, res) {
+  var id = Number(req.params.restaurantId); 
+  console.log('restaurantId', id);
+
   getPhotosById(id, (error, data) => {
     if(error) {
       console.log(error);

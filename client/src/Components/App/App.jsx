@@ -15,10 +15,16 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    var setId = Number(window.location.pathname.split('').slice(1).join(''));
-
+    let setId; 
+    console.log('pathname', window.location.pathname);
+    if(window.location.pathname === "/") {
+      setId = "1"; 
+    } else {
+      setId = window.location.pathname.split('').slice(1).join('');
+    } 
     setId = 1; 
-    axios.get(`/api/photos/${setId}`)
+ 
+    axios.get(`/${setId}`)
       .then((response) => {
         var photos = response.data;
         let newState = {
@@ -58,3 +64,4 @@ class App extends React.Component {
 }
 
 export default App;
+
