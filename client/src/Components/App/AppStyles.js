@@ -1,19 +1,17 @@
-import styled from 'styled-components';
+// import styled from 'styled-components';
+const {styled} = window;
 
 //minimum w/h => 330 X 280
 const PhotoGallery = styled.div`
   padding: 5px;
   justify-content: center;
-  position: static;
   max-height: 100%; 
-  max-width: 613px;
   min-height: 100%; 
-  min-width: 352px;
-  position: absolute;
+  position: relative;
   `;
 
 const Header = styled.h2`
-  border-bottom: solid grey 0.5px;
+  border-bottom: solid grey 0.2px;
   padding-bottom: 10px;
   font-size: 24px;
   font-weight: 600;

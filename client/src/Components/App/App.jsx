@@ -1,9 +1,8 @@
 import React from 'react';
 import Styled from './AppStyles.js';
 import axios from 'axios';
-import Gallery from '../Gallery/Gallery.jsx'
-import Modal from '../'
-
+import Gallery from '../Gallery/Gallery.jsx';
+import { relative } from 'path';
 
 class App extends React.Component {
   constructor(props) {
@@ -11,48 +10,53 @@ class App extends React.Component {
 
     this.state = {
       data: [],
-      currentById: [],
-      numOfImages: 0
     }
   }
 
   componentDidMount() {
-    axios.get('http://localhost:3002/api/photos')
+    let setId; 
+    console.log('pathname', window.location.pathname);
+    if(window.location.pathname === "/") {
+      setId = "1"; 
+    } else {
+      setId = window.location.pathname;
+    }  
 
+    axios.get(`/photos${setId}`)
       .then((response) => {
-        this.setState({
-          data: response.data
-        });
-      })
-
-      .then(() => {
-        //selects random restuarant id # to simulate get response.data.id
-        var randomId = Math.floor(Math.random() * 100) + 1;
-        var allImages = this.state.data;
-
-        var filteredById = allImages.filter((image) => {
-          return Number(image.restaurant_id) === randomId
-        })
+        var photos = response.data;
 
         let newState = {
-          data: this.state.data,
-          currentById: filteredById,
-          numOfImages: filteredById.length
+          data: response.data
         }
-
         this.setState(newState);
       })
-
       .catch(function (error) {
         console.log(error);
       });
   }
 
   render() {
+    var photos = this.state.data; 
+    var numPhotos = photos.length;
+    var relativeHeader = '';
+
+    if(numPhotos > 100) {
+      photos = photos.slice(0, 100);
+    }
+
+    if (numPhotos > 1) {
+      relativeHeader = numPhotos + ' Photos';
+    } else if (numPhotos === 1) {
+      relativeHeader = '1 Photo';
+    } else if (numPhotos === 0) {
+      relativeHeader = '0 Photos'
+    }
+
     return (
       <Styled.PhotoGallery>
-        <Styled.Header>{this.state.numOfImages} Photos</Styled.Header>
-        <Gallery data={this.state.currentById} imgTotal={this.state.numOfImages}/>
+        <Styled.Header>{relativeHeader}</Styled.Header>
+        <Gallery data={this.state.data} imgTotal={numPhotos} />
       </Styled.PhotoGallery>
     )
   }
