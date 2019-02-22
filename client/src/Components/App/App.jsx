@@ -19,12 +19,13 @@ class App extends React.Component {
     if(window.location.pathname === "/") {
       setId = "1"; 
     } else {
-      setId = window.location.pathname.split('').slice(1).join('');
-    } 
- 
-    //hard code url from es2 later...
-    axios.get(`/photos/${setId}`)
-    .then((response) => {
+      setId = window.location.pathname;
+    }  
+
+    axios.get(`/photos${setId}`)
+      .then((response) => {
+        var photos = response.data;
+
         let newState = {
           data: response.data
         }
@@ -62,4 +63,3 @@ class App extends React.Component {
 }
 
 export default App;
-

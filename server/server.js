@@ -7,7 +7,6 @@ const mysql = require('mysql');
 const cors = require('cors');
 var SqlString = require('sqlstring');
 
-
 var PORT = 3002;
 var app = express();
 
@@ -48,4 +47,3 @@ const getPhotosById = (id, callback) => {
     callback(null, photos)
    });
 }
-
