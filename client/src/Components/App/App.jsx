@@ -3,6 +3,7 @@ import Styled from './AppStyles.js';
 import axios from 'axios';
 import Gallery from '../Gallery/Gallery.jsx';
 import dummyData from '../../sampleData.js';
+import { relative } from 'path';
 
 class App extends React.Component {
   constructor(props) {
@@ -10,39 +11,24 @@ class App extends React.Component {
 
     this.state = {
       data: [],
-      numOfImages: 0,
-      header: ''
     }
   }
 
   componentDidMount() {
-    // var randomId = Math.floor(Math.random() * 100) + 1; // => use this to dynamically render
-    var setId = 1;
-    axios.get(`http://localhost:3002/api/photos/${setId}`)
+    let setId; 
+    console.log('pathname', window.location.pathname);
+    if(window.location.pathname === "/") {
+      setId = "1"; 
+    } else {
+      setId = window.location.pathname;
+    }  
 
+    axios.get(`/photos${setId}`)
       .then((response) => {
         var photos = response.data;
-        var relativeHeader = '';
-
-        if(photos.length > 100) {
-          photos = photos.slice(0, 100);
-        }
-
-        var length = photos.length;
-        if (length > 1) {
-          relativeHeader = length + ' Photos';
-        } else if (length === 1) {
-          relativeHeader = '1 Photo';
-        } else if (length === 0) {
-          relativeHeader = '0 Photos'
-        }
-
         let newState = {
-          data: photos,
-          numOfImages: photos.length,
-          header: relativeHeader
+          data: photos
         }
-
         this.setState(newState);
       })
       .catch(function (error) {
@@ -51,12 +37,26 @@ class App extends React.Component {
   }
 
   render() {
+    var photos = this.state.data; 
+    var numPhotos = photos.length;
+    var relativeHeader = '';
+
+    if(numPhotos > 100) {
+      photos = photos.slice(0, 100);
+    }
+
+    if (numPhotos > 1) {
+      relativeHeader = numPhotos + ' Photos';
+    } else if (numPhotos === 1) {
+      relativeHeader = '1 Photo';
+    } else if (numPhotos === 0) {
+      relativeHeader = '0 Photos'
+    }
+
     return (
       <Styled.PhotoGallery>
-        <Styled.Header>{this.state.header}</Styled.Header>
-
-        <Gallery data={this.state.data} imgTotal={this.state.numOfImages} />
-
+        <Styled.Header>{relativeHeader}</Styled.Header>
+        <Gallery data={this.state.data} imgTotal={numPhotos} />
       </Styled.PhotoGallery>
     )
   }
