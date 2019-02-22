@@ -13,8 +13,8 @@ var randomImage = function () {
 var insertPhotoRow = function () {
   let imageName = randomImage();
   let url = `https://s3-us-west-1.amazonaws.com/placeholders.carousel.photos/00${imageName}.jpg`;
-  // let restaurant_id = Math.floor(Math.random() * 100) + 1;
-  let restaurant_id = 1;
+  let restaurant_id = Math.floor(Math.random() * 100) + 1;
+  // let restaurant_id = 1;
   let description = faker.lorem.sentence();
   let date = faker.date.past().toString();
   let source = faker.lorem.words();
@@ -26,19 +26,22 @@ var insertPhotoRow = function () {
 }
 
 var populatePhotosTable = function () {
-  for (var i = 0; i < 100; i++) {
+  for (var i = 0; i < 1000; i++) {
     var query = insertPhotoRow();
 
     db.query(query, (err) => {
       if (err) {
         console.log(err);
       }
+      // db.end()
       return;
     })
   }
 }
 
 populatePhotosTable();
+
+
 
 module.exports.db = db;
 

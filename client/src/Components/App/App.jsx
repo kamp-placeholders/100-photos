@@ -17,12 +17,15 @@ class App extends React.Component {
 
   componentDidMount() {
     // var randomId = Math.floor(Math.random() * 100) + 1; // => use this to dynamically render
-    var setId = 1;
-    axios.get(`http://localhost:3002/api/photos/${setId}`)
+    var setId = Number(window.location.pathname.split('').slice(1).join(''));
+
+    console.log(setId);
+
+    axios.get(`/api/photos/${setId}`)
 
       .then((response) => {
         var photos = response.data;
-        var relativeHeader = '';
+        var relativeHeader = '';f
 
         if(photos.length > 100) {
           photos = photos.slice(0, 100);
