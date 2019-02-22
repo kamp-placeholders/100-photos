@@ -49,10 +49,11 @@ class Gallery extends React.Component {
               style={{
                 backgroundImage: `url(${this.props.data[8].url})`
               }}
-            /><div class="overlay">
+            >
+              <div class="overlay">
                 <p>+ {this.props.imgTotal - 9} more</p>
               </div>
-            <div/>
+            </div>
           </Styled.Gallery>
 
           <Modal show={this.state.isOpen} onClose={this.toggleModal}>
