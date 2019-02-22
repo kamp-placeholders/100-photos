@@ -14,18 +14,19 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    let setId; 
-    console.log('pathname', window.location.pathname);
+    let setId, origin; 
     if(window.location.pathname === "/") {
-      setId = "1"; 
+      setId = "/1/"; 
     } else {
-      setId = window.location.pathname;
+      setId = window.location.pathname
     }  
+    origin = window.location.origin;
+    console.log('origin', origin);
+    console.log('id', setId)
 
-    axios.get(`/photos${setId}`)
+    //set this to wherever the app is being served. 
+    axios.get(`http://localhost:3002/photos${setId}`)
       .then((response) => {
-        var photos = response.data;
-
         let newState = {
           data: response.data
         }
