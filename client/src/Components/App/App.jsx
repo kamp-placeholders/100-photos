@@ -24,8 +24,6 @@ class App extends React.Component {
 
     axios.get(`/photos${setId}`)
       .then((response) => {
-        var photos = response.data;
-
         let newState = {
           data: response.data
         }
