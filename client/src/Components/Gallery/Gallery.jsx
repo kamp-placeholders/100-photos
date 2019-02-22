@@ -44,13 +44,14 @@ class Gallery extends React.Component {
             })}
             <div
               id="photo8"
+              key={this.props.data[8].id}
               className="photo"
               onClick={this.toggleModal}
               style={{
                 backgroundImage: `url(${this.props.data[8].url})`
               }}
             >
-              <div class="overlay">
+              <div className="overlay">
                 <p>+ {this.props.imgTotal - 9} more</p>
               </div>
             </div>
