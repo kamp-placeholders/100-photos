@@ -2,7 +2,6 @@ import React from 'react';
 import Styled from './AppStyles.js';
 import axios from 'axios';
 import Gallery from '../Gallery/Gallery.jsx';
-import dummyData from '../../sampleData.js';
 import { relative } from 'path';
 
 class App extends React.Component {
@@ -26,8 +25,9 @@ class App extends React.Component {
     axios.get(`/photos${setId}`)
       .then((response) => {
         var photos = response.data;
+
         let newState = {
-          data: photos
+          data: response.data
         }
         this.setState(newState);
       })

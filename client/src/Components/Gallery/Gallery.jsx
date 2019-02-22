@@ -3,8 +3,6 @@ import Styled from './GalleryStyles.js';
 import Modal from '../Modal/Modal.jsx';
 import Carousel from '../Carousel/Carousel.jsx';
 
-
-
 class Gallery extends React.Component {
   constructor(props) {
     super(props)
@@ -29,85 +27,34 @@ class Gallery extends React.Component {
       return (
         <div>
           <Styled.Gallery>
-            <Styled.Layout>
-
-              <Styled.Item1>
-                <Styled.Button id={this.props.data[0].id} onClick={this.toggleModal}>
-                  <Styled.PhotoContainer>
-                    <Styled.Photo src={this.props.data[0].url}></Styled.Photo>
-                  </Styled.PhotoContainer>
-                </Styled.Button>
-              </Styled.Item1>
-
-              <Styled.Item2>
-                <Styled.Button id={this.props.data[1].id} onClick={this.toggleModal}>
-                  <Styled.PhotoContainer >
-                    <Styled.Photo src={this.props.data[1].url}></Styled.Photo>
-                  </Styled.PhotoContainer>
-                </Styled.Button>
-              </Styled.Item2>
-
-              <Styled.Item3>
-                <Styled.Button id={this.props.data[2].id} onClick={this.toggleModal}>
-                  <Styled.PhotoContainer>
-                    <Styled.Photo src={this.props.data[2].url}></Styled.Photo>
-                  </Styled.PhotoContainer>
-                </Styled.Button>
-              </Styled.Item3>
-
-              <Styled.Item4>
-                <Styled.Button id={this.props.data[3].id} onClick={this.toggleModal}>
-                  <Styled.PhotoContainer>
-                    <Styled.Photo src={this.props.data[3].url} ></Styled.Photo>
-                  </Styled.PhotoContainer>
-                </Styled.Button>
-              </Styled.Item4>
-
-              <Styled.Item5>
-                <Styled.Button id={this.props.data[4].id} onClick={this.toggleModal}>
-                  <Styled.PhotoContainer>
-                    <Styled.Photo src={this.props.data[4].url} ></Styled.Photo>
-                  </Styled.PhotoContainer>
-                </Styled.Button>
-              </Styled.Item5>
-
-              <Styled.Item6>
-                <Styled.Button id={this.props.data[5].id} onClick={this.toggleModal}>
-                  <Styled.PhotoContainer>
-                    <Styled.Photo src={this.props.data[5].url} ></Styled.Photo>
-                  </Styled.PhotoContainer>
-                </Styled.Button>
-              </Styled.Item6>
-
-              <Styled.Item7>
-                <Styled.Button id={this.props.data[6].id} onClick={this.toggleModal}>
-                  <Styled.PhotoContainer>
-                    <Styled.Photo src={this.props.data[6].url} ></Styled.Photo>
-                  </Styled.PhotoContainer>
-                </Styled.Button>
-              </Styled.Item7>
-
-              <Styled.Item8>
-                <Styled.Button id={this.props.data[7].id} onClick={this.toggleModal}>
-                  <Styled.PhotoContainer>
-                    <Styled.Photo src={this.props.data[7].url} ></Styled.Photo>
-                  </Styled.PhotoContainer>
-                </Styled.Button>
-              </Styled.Item8>
-
-              <Styled.ItemLast>
-                <Styled.Button id={this.props.data[8].id} onClick={this.toggleModal}>
-                  <Styled.PhotoContainer>
-                    <Styled.Photo
-                      src={this.props.data[8].url} ></Styled.Photo>
-
-                    <Styled.LastItemOverlay>+ {this.props.imgTotal - 9} more</Styled.LastItemOverlay>
-
-                  </Styled.PhotoContainer>
-                </Styled.Button>
-              </Styled.ItemLast>
-
-            </Styled.Layout>
+            {this.props.data.map((item, i) => {
+              if (i < 8) {
+                return (
+                  <div
+                    id={`photo${i}`}
+                    key={item.id}
+                    className="photo"
+                    onClick={this.toggleModal}
+                    style={{
+                      backgroundImage: `url(${item.url})`
+                    }}
+                  />
+                )
+              }
+            })}
+            <div
+              id="photo8"
+              key={this.props.data[8].id}
+              className="photo"
+              onClick={this.toggleModal}
+              style={{
+                backgroundImage: `url(${this.props.data[8].url})`
+              }}
+            >
+              <div className="overlay">
+                <p>+ {this.props.imgTotal - 9} more</p>
+              </div>
+            </div>
           </Styled.Gallery>
 
           <Modal show={this.state.isOpen} onClose={this.toggleModal}>
@@ -116,11 +63,11 @@ class Gallery extends React.Component {
 
         </div>
       )
-    } else if(this.props.data.length < 9 && this.props.data.length !== 0){
+    } else if (this.props.data.length < 9 && this.props.data.length !== 0) {
       return (
-      <Styled.Gallery>
-        <Styled.SinglePhoto src={this.props.data[0].url}></Styled.SinglePhoto>
-      </Styled.Gallery>
+        <Styled.Gallery>
+          <Styled.SinglePhoto src={this.props.data[0].url}></Styled.SinglePhoto>
+        </Styled.Gallery>
       )
     } else if (this.props.data.length === 0) {
       return <div></div>

@@ -20,20 +20,13 @@ class Carousel extends React.Component {
   }
 
   componentDidMount() {
-    let allPhotos = this.state.photos; 
-    let foundIndex = 0; 
-    let foundCurrentPhoto = allPhotos.filter((item) => {
-      if(item.id === this.state.currentId) {
-        foundIndex = this.props.data.findIndex((e) => e.id === item.id);
-      }
-      return item.id === this.state.currentId; 
-    });
-
-    var shortenedDate = foundCurrentPhoto[0].date.split(' ').splice(0,4).join(' ');
+    console.log(this.props.current.split(''));
+    let index = Number(this.props.current.split('').slice(5));
+    var shortenedDate = this.props.data[index].date.split(' ').splice(0,4).join(' ');
 
     let newState = {
-      currentIndex: foundIndex,
-      currentPhoto: foundCurrentPhoto,
+      currentIndex: index,
+      currentPhoto: this.props.data[index],
       shortDate: shortenedDate
     }
       this.setState(newState);
