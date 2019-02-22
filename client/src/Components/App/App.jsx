@@ -24,7 +24,8 @@ class App extends React.Component {
     } 
     setId = 1; 
  
-    axios.get(`/${setId}`)
+    //hard code url from es2
+    axios.get(`/photos${setId}`)
       .then((response) => {
         var photos = response.data;
         let newState = {

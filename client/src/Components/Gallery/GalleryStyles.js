@@ -15,18 +15,6 @@ const SinglePhoto = styled.img`
   background-size: cover; 
 `;
 
-const Layout = styled.ul`
-overflow: hidden; 
-  display: grid;
-  grid-gap: 1px;
-  grid-template-columns: 23% 45% 15% 15%;
-  grid-template-rows: repeat(6, 2.73vh);
-  margin: 0 auto;
-  list-style: none;
-  padding-left: 0;
-  padding-right: 0;
-`;
-
 const Item1 = styled.li`
   overflow: hidden;
   grid-area: 1 / 1 / 4 / span 1;
@@ -124,4 +112,4 @@ const LastItemOverlay = styled.div`
   }
 `;
 
-export default { Photo, PhotoContainer, Button, LastItemOverlay, ItemLast, Item6, Item7, Item8, Item5, Item4, Item3, Item2, Item1, Layout, Gallery, SinglePhoto }
+export default { Photo, PhotoContainer, Button, LastItemOverlay, ItemLast, Item6, Item7, Item8, Item5, Item4, Item3, Item2, Item1, Gallery, SinglePhoto }
