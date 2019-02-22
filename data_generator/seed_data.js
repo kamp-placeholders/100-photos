@@ -13,6 +13,7 @@ var randomImage = function () {
 var insertPhotoRow = function () {
   let imageName = randomImage();
   let url = `https://s3-us-west-1.amazonaws.com/placeholders.carousel.photos/00${imageName}.jpg`;
+
   let restaurant_id = Math.floor(Math.random() * 100) + 1;
   // let restaurant_id = 1;
   let description = faker.lorem.sentence();
@@ -33,15 +34,12 @@ var populatePhotosTable = function () {
       if (err) {
         console.log(err);
       }
-      // db.end()
       return;
     })
   }
 }
 
 populatePhotosTable();
-
-
 
 module.exports.db = db;
 
