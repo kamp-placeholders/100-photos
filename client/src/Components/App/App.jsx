@@ -20,11 +20,10 @@ class App extends React.Component {
     if(window.location.pathname === "/") {
       setId = "1"; 
     } else {
-      setId = window.location.pathname.split('').slice(1).join('');
-    } 
-    setId = 1; 
- 
-    axios.get(`/${setId}`)
+      setId = window.location.pathname;
+    }  
+
+    axios.get(`/photos${setId}`)
       .then((response) => {
         var photos = response.data;
         let newState = {

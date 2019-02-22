@@ -17,9 +17,9 @@ app.use(morgan('dev'));
 app.use(parser.json());
 app.use(cors());
 
-app.use(express.static('./client/dist'));
+app.use('/:restaurantId', express.static('./client/dist'));
 
-app.get('/:restaurantId', function (req, res) {
+app.get('/photos/:restaurantId', function (req, res) {
   var id = Number(req.params.restaurantId); 
   console.log('restaurantId', id);
 
