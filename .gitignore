@@ -27,5 +27,6 @@ client/dist/*
 !client/dist/index.html
 !client/dist/flag.png
 .config.js
+./database/index.js
 
 client/src/sampleData.js
