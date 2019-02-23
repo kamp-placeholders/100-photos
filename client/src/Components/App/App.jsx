@@ -21,7 +21,6 @@ class App extends React.Component {
       setId = window.location.pathname
     }  
     origin = window.location.origin;
-
     axios.get(`http://localhost:3002/photos${setId}`)
       .then((response) => {
         let newState = {

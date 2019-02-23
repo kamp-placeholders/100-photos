@@ -19,7 +19,10 @@ app.use(cors());
 app.use(express.static('./client/dist'));
 
 app.get('/photos/:restaurantId', function (req, res) {
+
   var id = Number(req.params.restaurantId); 
+
+  console.log('server-side id', typeof id, id)
   getPhotosById(id, (error, data) => {
     if(error) {
       console.log(error);
