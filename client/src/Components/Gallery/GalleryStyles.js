@@ -27,6 +27,8 @@ const Gallery = styled.div`
       flex-direction: row;
       align-items: center;
       justify-content: center;
+      font-family: BrandonText,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+      -webkit-font-smoothing: antialiased;
 
       p {
         color: white;

@@ -1,4 +1,3 @@
-// import styled from 'styled-components';
 const {styled} = window;
 
 const Exit = styled.button`
@@ -12,7 +11,6 @@ const Exit = styled.button`
   color: white;
   text-decoration: none;
   font-family: icons;
-  speak: none;
   font-style: normal;
   font-weight: 400;
   font-variant: normal;
@@ -53,7 +51,7 @@ const Content = styled.div`
   grid-area: auto / 2 / auto / span 1;
   justify-content: center; 
   width: 320px;
-  height: 400px
+  height: 400px;
   top: 0;
   left: 0; 
   max-height: 490;
@@ -68,7 +66,7 @@ const LeftButton = styled.a`
   font-size: 1.2rem;
   position: absolute;
   top: 50%;
-  margin-left: 15%
+  margin-left: 15%;
   left: 0;
   font-family: icons;
   speak: none;
