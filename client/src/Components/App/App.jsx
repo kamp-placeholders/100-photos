@@ -14,14 +14,14 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    let setId, origin; 
+    let setId; 
     if(window.location.pathname === "/") {
       setId = "/1/"; 
     } else {
       setId = window.location.pathname
     }  
-    origin = window.location.origin;
-    axios.get(`http://localhost:3002/photos${setId}`)
+    
+    axios.get(`http://ec2-54-85-101-227.compute-1.amazonaws.com/photos${setId}`)
       .then((response) => {
         let newState = {
           data: response.data
@@ -29,6 +29,7 @@ class App extends React.Component {
         this.setState(newState);
       })
       .catch(function (error) {
+        console.log(response)
         console.log(error);
       });
   }

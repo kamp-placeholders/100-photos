@@ -13,7 +13,7 @@
     "test:watch": "jest --watchAll --verbose",
     "test:coverage": "jest --verbose --coverage",
     "build": "webpack -d --watch",
-    "start": "nodemon ./server/server.js ",
+    "start": "node ./server/server.js ",
     "seed": "node ./data_generator/seed_data.js"
   },
   "jest": {
