@@ -5,7 +5,7 @@ const parser = require('body-parser');
 const db = require('../database/index.js');
 const mysql = require('mysql');
 const cors = require('cors');
-var SqlString = require('sqlstring');
+const SqlString = require('sqlstring');
 
 var PORT = 3002;
 var app = express();
@@ -16,11 +16,10 @@ app.use(morgan('dev'));
 app.use(parser.json());
 app.use(cors());
 
-app.use('/:restaurantId', express.static('./client/dist'));
+app.use(express.static('./client/dist'));
 
 app.get('/photos/:restaurantId', function (req, res) {
   var id = Number(req.params.restaurantId); 
-  console.log('server-side', id);
   getPhotosById(id, (error, data) => {
     if(error) {
       console.log(error);

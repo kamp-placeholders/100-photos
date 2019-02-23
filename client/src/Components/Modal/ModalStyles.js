@@ -1,4 +1,3 @@
-// import styled from 'styled-components';
 const {styled} = window;
 
 const BackDropStyle = styled.div`
