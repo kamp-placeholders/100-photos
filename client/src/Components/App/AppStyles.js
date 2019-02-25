@@ -1,7 +1,5 @@
 import styled from 'styled-components';
-const {styled} = window;
 
-//minimum w/h => 330 X 280
 const PhotoGallery = styled.div`
   padding: 5px;
   justify-content: center;

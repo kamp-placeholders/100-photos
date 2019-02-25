@@ -1,4 +1,4 @@
-const {styled} = window;
+import styled from 'styled-components';
 
 const BackDropStyle = styled.div`
   background-color: rgba(0,0,0,0.85);

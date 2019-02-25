@@ -2,7 +2,6 @@ import React from 'react';
 import Styled from './AppStyles.js';
 import axios from 'axios';
 import Gallery from '../Gallery/Gallery.jsx';
-import { relative } from 'path';
 
 class App extends React.Component {
   constructor(props) {

@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App component snapshot test 1`] = `
+<AppStyles__PhotoGallery>
+  <AppStyles__Header>
+    0 Photos
+  </AppStyles__Header>
+  <Gallery
+    data={Array []}
+    imgTotal={0}
+  />
+</AppStyles__PhotoGallery>
+`;

@@ -20,7 +20,7 @@ class Carousel extends React.Component {
   }
 
   componentDidMount() {
-    console.log(this.props.current.split(''));
+    console.log(this.props.current);
     let index = Number(this.props.current.split('').slice(5));
     var shortenedDate = this.props.data[index].date.split(' ').splice(0,4).join(' ');
 
@@ -67,7 +67,7 @@ class Carousel extends React.Component {
     return (
       <div>
         <Styled.Main>
-                <Styled.LeftButton onClick={this.leftClickHandler}/>
+                <Styled.LeftButton id="leftButton" onClick={this.leftClickHandler}/>
             <Styled.Content>
 
                   <Styled.PhotoContainer>
@@ -86,10 +86,10 @@ class Carousel extends React.Component {
                   </Styled.Description>
 
             </Styled.Content>
-                <Styled.RightButton onClick={this.rightClickHandler}/>
+                <Styled.RightButton id="rightButton" onClick={this.rightClickHandler}/>
 
         </Styled.Main>
-        <Styled.Exit onClick={this.props.toggle}></Styled.Exit>
+        <Styled.Exit id="exitButton" onClick={this.props.toggle}></Styled.Exit>
       </div>
     )
   }
