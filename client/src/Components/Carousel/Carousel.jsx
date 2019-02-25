@@ -20,7 +20,6 @@ class Carousel extends React.Component {
   }
 
   componentDidMount() {
-    console.log(this.props.current);
     let index = Number(this.props.current.split('').slice(5));
     var shortenedDate = this.props.data[index].date.split(' ').splice(0,4).join(' ');
 
