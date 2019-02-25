@@ -1,4 +1,4 @@
-// import styled from 'styled-components';
+import styled from 'styled-components';
 const {styled} = window;
 
 //minimum w/h => 330 X 280

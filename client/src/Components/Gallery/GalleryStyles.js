@@ -1,3 +1,4 @@
+import styled from 'styled-components';
 const { styled } = window;
 
 const Gallery = styled.div`
