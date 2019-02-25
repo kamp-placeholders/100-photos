@@ -6,22 +6,22 @@ const db = require('../database/index.js');
 const mysql = require('mysql');
 const cors = require('cors');
 const SqlString = require('sqlstring');
+const compression = require('compression');
 
 var PORT = 3002;
 var app = express();
 
 db.connect();
 
+app.use(compression());
 app.use(morgan('dev'));
 app.use(parser.json());
 app.use(cors());
 
-app.use(express.static('./client/dist'));
+app.use('/restaurants/:Id', express.static('./client/dist'));
 
-app.get('/photos/:restaurantId', function (req, res) {
-
+app.get('/photos/restaurants/:restaurantId', function (req, res) {
   var id = Number(req.params.restaurantId); 
-  console.log('server-side id', typeof id, id)
   getPhotosById(id, (error, data) => {
     if(error) {
       console.log(error);
@@ -32,6 +32,10 @@ app.get('/photos/:restaurantId', function (req, res) {
     res.status(200).send(data);
   });
 })
+
+app.use('/restaurants/*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/dist/index.html'))
+});
 
 app.use('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/dist/index.html'))

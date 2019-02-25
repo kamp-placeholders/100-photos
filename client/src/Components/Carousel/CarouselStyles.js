@@ -34,14 +34,13 @@ const Exit = styled.button`
 `;
   
 const Main = styled.div`
-  display: grid; 
-  grid-template-columns: 25% 50% 25%;
+  display: flex; 
   width: 660px;
   height: auto; 
   min-height: 300px;
   min-height: 300px;
-  justify-self: center;
-  justify-content: center;
+  justify-content: space-around;
+  align-items: center;
   position: relative;
 `;
 
@@ -52,8 +51,6 @@ const Content = styled.div`
   justify-content: center; 
   width: 320px;
   height: 400px;
-  top: 0;
-  left: 0; 
   max-height: 490;
   max-width: 490;
   min-height: 300px;
@@ -61,15 +58,9 @@ const Content = styled.div`
 `;
 
 const LeftButton = styled.a`
-  left: 22%;
   color: #91949a;
   font-size: 1.2rem;
-  position: absolute;
-  top: 50%;
-  margin-left: 15%;
-  left: 0;
   font-family: icons;
-  speak: none;
   font-style: normal;
   font-weight: 100;
   font-variant: normal;
@@ -80,16 +71,11 @@ const LeftButton = styled.a`
     content: '<'; 
   }
 `;
-
+ 
 const RightButton = styled.a`
-  right: 24%;
   color: white; 
   font-size: 1.2rem;
-  position: absolute;
-  top: 50%;
-  margin-right: 60%
   font-family: icons;
-  speak: none;
   font-style: normal;
   font-weight: 100;
   font-variant: normal;
@@ -144,7 +130,7 @@ const Strong = styled(Text)`
 const Flag = styled.a`
   display: inline;
   position: absolute; 
-  top: 0
+  top: 0;
   right: 0;
 `;
 

@@ -28,7 +28,6 @@ class App extends React.Component {
         this.setState(newState);
       })
       .catch(function (error) {
-        console.log(response)
         console.log(error);
       });
   }
@@ -37,11 +36,9 @@ class App extends React.Component {
     var photos = this.state.data; 
     var numPhotos = photos.length;
     var relativeHeader = '';
-    console.log('before slice', numPhotos);
     if(numPhotos > 100) {
       photos = photos.slice(0, 100);
     }
-    console.log('after slice', numPhotos);
 
     if (numPhotos > 1) {
       relativeHeader = numPhotos + ' Photos';
